@@ -611,6 +611,20 @@ section.active{min-height:0;}
   .hero{max-width:1280px;}
   .features,.compare-wrap,.phase2-wrap{max-width:1280px;}
 }
+
+/* ===== LOGIN / ACCOUNT ENTRY ===== */
+.login-wrap{min-height:calc(100vh - 72px);display:grid;grid-template-columns:1.05fr .95fr;max-width:1180px;margin:0 auto;padding:42px 7vw;gap:42px;align-items:center}
+.login-brand-panel{padding:34px}.login-app-logo{width:86px;height:86px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(145deg,#1b806b,#0b443a);color:white;font-size:42px;box-shadow:0 18px 38px rgba(20,107,89,.24);margin-bottom:22px}.login-brand-panel h1{font-size:clamp(42px,5vw,66px);margin:0 0 14px}.login-brand-panel p{color:var(--muted);line-height:1.8;max-width:540px}.login-points{display:grid;gap:10px;margin-top:24px}.login-point{display:flex;gap:10px;align-items:center;color:#52635d;font-size:14px}.login-point i{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--green);font-style:normal;font-weight:800}.login-card{background:white;border:1px solid var(--line);border-radius:30px;padding:32px;box-shadow:var(--shadow)}.login-card-head{text-align:center;margin-bottom:24px}.login-mini-logo{width:58px;height:58px;border-radius:19px;display:grid;place-items:center;background:linear-gradient(145deg,#1b806b,#0b443a);color:white;font-size:28px;margin:0 auto 12px}.login-card h2{margin:0;font-size:28px}.login-card-head p{margin:6px 0 0;color:var(--muted);font-size:13px}.login-field{margin-top:14px}.login-field label{display:block;font-size:12px;font-weight:700;margin-bottom:7px;color:#52615c}.login-field input{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:14px 15px;outline:none;font-size:16px;background:#fbfcfb}.login-field input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(20,107,89,.08)}.password-row{position:relative}.password-row input{padding-right:62px}.show-password{position:absolute;right:8px;top:8px;background:transparent;color:var(--green);padding:7px;font-size:12px;font-weight:700}.login-options{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:13px 0 18px;font-size:12px;color:var(--muted)}.remember{display:flex;gap:7px;align-items:center}.remember input{accent-color:var(--green)}.forgot{background:none;color:var(--green);padding:0;font-size:12px}.login-submit{width:100%;padding:15px}.login-divider{display:flex;align-items:center;gap:12px;color:#9aa7a2;font-size:11px;margin:20px 0}.login-divider:before,.login-divider:after{content:'';height:1px;background:var(--line);flex:1}.demo-login{width:100%;background:var(--mint2);color:var(--green);border:1px solid #cfe5db;padding:13px;border-radius:14px;font-weight:700}.signup-note{text-align:center;color:var(--muted);font-size:12px;margin:18px 0 0}.signup-note button{background:none;color:var(--green);font-weight:800;padding:0}.login-error{min-height:20px;color:#a94747;font-size:12px;margin-top:8px}.login-privacy{font-size:10px;color:#98a39f;text-align:center;line-height:1.6;margin-top:16px}
+body.login-mode .mobile-bottom-nav,body.login-mode .app-fab{display:none!important}body.login-mode nav .navlinks{display:none!important}
+@media(max-width:800px){.login-wrap{grid-template-columns:1fr;min-height:auto;padding:28px 20px 40px;gap:18px}.login-brand-panel{padding:8px 4px;text-align:center}.login-app-logo{width:70px;height:70px;border-radius:23px;font-size:34px;margin:0 auto 16px}.login-brand-panel h1{font-size:38px}.login-brand-panel p{font-size:13px;margin:0 auto}.login-points{display:none}.login-card{padding:24px 18px;border-radius:25px}.login-card-head .login-mini-logo{display:none}}
+@media(max-width:430px){.login-wrap{padding:22px 16px 30px}.login-brand-panel h1{font-size:32px;letter-spacing:-1px}.login-card h2{font-size:24px}.login-options{align-items:flex-start}.login-card{box-shadow:none}}
+</style>
+
+<style>
+/* ===== PHASE 2 MEMBER APP: DASHBOARD / BUDDY / REWARDS ===== */
+.member-app-wrap{max-width:1180px;margin:28px auto 70px;padding:0 20px}.member-app-head{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px}.member-app-head h2{margin:4px 0;font-size:34px}.member-app-head p{margin:0;color:var(--muted)}.points-pill{background:#173d35;color:#fff;padding:12px 16px;border-radius:18px;font-weight:800;white-space:nowrap}.member-app-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.app-panel{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:var(--shadow)}.welcome-strip{background:linear-gradient(135deg,#0f5f50,#173d35);color:white;border-radius:24px;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}.welcome-strip h3{font-size:25px;margin:4px 0}.welcome-strip p{color:#cfe3dc;margin:0;font-size:13px}.mini-match{background:rgba(255,255,255,.12);padding:12px 15px;border-radius:17px;text-align:right}.mini-match b{display:block;font-size:20px}.feature-shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}.shortcut{background:#f7faf8;border:1px solid var(--line);border-radius:18px;padding:16px;text-align:left;color:var(--ink)}.shortcut strong{display:block;margin:7px 0 2px}.shortcut span{font-size:12px;color:var(--muted)}.buddy-head,.reward-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.buddy-head h3,.reward-head h3{margin:0}.buddy-feed{display:grid;gap:12px}.buddy-post{border:1px solid var(--line);border-radius:20px;padding:17px;background:#fbfdfc}.buddy-user{display:flex;align-items:center;gap:10px}.avatar-sm{width:38px;height:38px;border-radius:13px;background:var(--mint);display:grid;place-items:center;font-weight:800;color:var(--green)}.buddy-user small{display:block;color:var(--muted)}.buddy-post h4{margin:13px 0 6px;font-size:17px}.buddy-meta{display:flex;gap:7px;flex-wrap:wrap;margin:9px 0}.buddy-meta span{font-size:11px;background:#eef5f1;border-radius:999px;padding:6px 9px;color:#52635d}.buddy-progress{height:7px;background:#e7eeea;border-radius:9px;overflow:hidden;margin:12px 0}.buddy-progress i{display:block;height:100%;background:var(--green);border-radius:9px}.buddy-actions{display:flex;gap:8px}.buddy-actions button{flex:1}.reward-card{background:linear-gradient(145deg,#fff8e6,#f7ecd0);border:1px solid #efdfb6;border-radius:22px;padding:20px}.reward-score{font-family:'DM Sans';font-size:38px;font-weight:800}.reward-progress{height:10px;background:rgba(255,255,255,.8);border-radius:10px;overflow:hidden;margin:10px 0}.reward-progress div{height:100%;width:68%;background:#b88b2e}.reward-list{display:grid;gap:9px;margin-top:14px}.reward-item{display:flex;align-items:center;gap:10px;background:white;border:1px solid #eee4ca;border-radius:15px;padding:12px}.reward-icon{width:40px;height:40px;border-radius:12px;background:#fff4d4;display:grid;place-items:center}.reward-item b{display:block;font-size:13px}.reward-item small{color:var(--muted)}.chat-modal,.post-modal{position:fixed;inset:0;background:rgba(16,34,29,.45);z-index:300;display:none;align-items:flex-end;justify-content:center;padding:16px}.chat-modal.open,.post-modal.open{display:flex}.modal-sheet{width:min(100%,520px);max-height:82vh;background:#fff;border-radius:26px;padding:20px;display:flex;flex-direction:column;box-shadow:0 25px 70px rgba(0,0,0,.25)}.modal-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}.modal-top h3{margin:0}.close-x{width:38px;height:38px;border-radius:12px;background:#f2f5f3}.chat-messages{display:grid;gap:9px;overflow:auto;padding:15px 2px;min-height:220px}.bubble{max-width:82%;padding:10px 12px;border-radius:15px;background:#f0f4f2;font-size:13px;line-height:1.5}.bubble.me{margin-left:auto;background:var(--mint);color:var(--green-dark)}.chat-input{display:flex;gap:8px}.chat-input input,.post-form input{width:100%;border:1px solid var(--line);border-radius:13px;padding:13px;outline:none}.post-form{display:grid;gap:10px;padding-top:15px}.post-form label{font-size:12px;font-weight:700}.post-form .two{display:grid;grid-template-columns:1fr 1fr;gap:9px}.join-done{background:#e8f5ef!important;color:var(--green)!important;border-color:#b9dfcf!important}.reward-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:#173d35;color:white;padding:12px 16px;border-radius:15px;z-index:350;opacity:0;pointer-events:none;transition:.25s;white-space:nowrap}.reward-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:850px){.member-app-grid{grid-template-columns:1fr}.feature-shortcuts{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:600px){.member-app-wrap{padding:0 15px;margin-top:16px}.member-app-head{align-items:flex-start}.member-app-head h2{font-size:27px}.points-pill{font-size:12px;padding:10px 12px}.welcome-strip{align-items:flex-start;flex-direction:column;padding:20px}.mini-match{text-align:left}.feature-shortcuts{grid-template-columns:1fr}.app-panel{padding:17px;border-radius:22px}.buddy-actions{flex-direction:column}.modal-sheet{border-radius:24px}.post-form .two{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -633,9 +647,55 @@ section.active{min-height:0;}
 </nav>
 
 
+
+<!-- LOGIN -->
+<section id="login" class="active">
+  <div class="login-wrap">
+    <div class="login-brand-panel">
+      <div class="login-app-logo" aria-label="Wellness Value Matcher logo">♥</div>
+      <div class="badge">✦ YOUR WELLNESS, YOUR VALUE</div>
+      <h1>Wellness<br><span class="accent">Value Matcher</span></h1>
+      <p>เข้าสู่ระบบเพื่อเริ่มค้นหาแพ็กเกจ Wellness ที่เหมาะกับไลฟ์สไตล์ ความสนใจ และงบประมาณของคุณ</p>
+      <div class="login-points">
+        <div class="login-point"><i>✓</i><span>ตอบคำถามสั้น ๆ 7 ข้อ</span></div>
+        <div class="login-point"><i>✓</i><span>รับคำแนะนำแพ็กเกจเฉพาะสำหรับคุณ</span></div>
+        <div class="login-point"><i>✓</i><span>เปรียบเทียบราคาและบริการได้ในที่เดียว</span></div>
+      </div>
+    </div>
+    <form class="login-card" id="loginForm">
+      <div class="login-card-head">
+        <div class="login-mini-logo">♥</div>
+        <h2>ยินดีต้อนรับ 👋</h2>
+        <p>เข้าสู่บัญชีของคุณเพื่อเริ่ม Wellness Match</p>
+      </div>
+      <div class="login-field">
+        <label for="loginEmail">อีเมล</label>
+        <input id="loginEmail" type="email" autocomplete="email" placeholder="name@example.com" required>
+      </div>
+      <div class="login-field">
+        <label for="loginPassword">รหัสผ่าน</label>
+        <div class="password-row">
+          <input id="loginPassword" type="password" autocomplete="current-password" placeholder="อย่างน้อย 6 ตัวอักษร" minlength="6" required>
+          <button type="button" class="show-password" id="togglePassword">แสดง</button>
+        </div>
+      </div>
+      <div class="login-options">
+        <label class="remember"><input type="checkbox" id="rememberLogin"> จำฉันไว้</label>
+        <button type="button" class="forgot" onclick="alert('Prototype: ฟังก์ชันรีเซ็ตรหัสผ่านจะพัฒนาในขั้นถัดไป')">ลืมรหัสผ่าน?</button>
+      </div>
+      <div class="login-error" id="loginError" aria-live="polite"></div>
+      <button class="primary login-submit" type="submit">เข้าสู่ระบบและเริ่ม Match →</button>
+      <div class="login-divider">หรือทดลอง Prototype</div>
+      <button class="demo-login" type="button" onclick="demoLogin()">✦ เข้าใช้งานด้วยบัญชีทดลอง</button>
+      <p class="signup-note">ยังไม่มีบัญชี? <button type="button" onclick="alert('Prototype: หน้าสมัครสมาชิกจะพัฒนาในขั้นถัดไป')">สร้างบัญชีใหม่</button></p>
+      <div class="login-privacy">Prototype นี้ยังไม่มีระบบบัญชีจริง ข้อมูลที่กรอกใช้เพื่อจำลอง User Flow เท่านั้น</div>
+    </form>
+  </div>
+</section>
+
 <!-- HOME -->
 
-<section id="home" class="active">
+<section id="home">
 <div class="hero">
 <div>
   <div class="badge">✦ Personalized Wellness Recommendation</div>
@@ -1133,6 +1193,41 @@ Signature Package
   </div>
 </section>
 
+
+<section id="dashboard">
+  <div class="member-app-wrap">
+    <div class="member-app-head">
+      <div><div class="eyebrow">MY WELLNESS</div><h2>สวัสดี 👋 พร้อมเริ่ม Wellness Journey แล้ว</h2><p>หาเพื่อนออกกำลังกาย สะสมแต้ม และใช้สิทธิพิเศษได้จากหน้าเดียว</p></div>
+      <div class="points-pill">🪙 <span id="topPoints">680</span> Points</div>
+    </div>
+    <div class="welcome-strip">
+      <div><div style="font-size:11px;opacity:.75">YOUR MATCH</div><h3 id="dashPackage">Signature Package</h3><p id="dashPackageText">แพ็กเกจที่ระบบแนะนำจากคำตอบของคุณ</p></div>
+      <div class="mini-match"><b id="dashScore">94% Match</b><span style="font-size:11px;color:#cfe3dc">Personalized for you</span></div>
+    </div>
+    <div class="feature-shortcuts">
+      <button class="shortcut" onclick="document.getElementById('buddyArea').scrollIntoView({behavior:'smooth'})"><span style="font-size:24px">👥</span><strong>Buddy</strong><span>หาเพื่อนไปออกกำลังกาย</span></button>
+      <button class="shortcut" onclick="document.getElementById('rewardArea').scrollIntoView({behavior:'smooth'})"><span style="font-size:24px">🎁</span><strong>Rewards</strong><span>สะสมแต้มแลกสิทธิพิเศษ</span></button>
+      <button class="shortcut" onclick="show('phase2')"><span style="font-size:24px">📅</span><strong>Booking</strong><span>ดูกิจกรรมและช่วงเวลา</span></button>
+    </div>
+    <div class="member-app-grid">
+      <div class="app-panel" id="buddyArea">
+        <div class="buddy-head"><div><div class="eyebrow">BUDDY</div><h3>หาเพื่อนออกกำลังกาย</h3></div><button class="primary" onclick="openPostModal()">＋ สร้างโพสต์</button></div>
+        <div class="buddy-feed" id="buddyFeed">
+          <article class="buddy-post" data-joined="false"><div class="buddy-user"><div class="avatar-sm">M</div><div><b>Mint</b><small>โพสต์เมื่อ 20 นาทีที่แล้ว</small></div></div><h4>🏸 หาเพื่อนตีแบดวันอาทิตย์นี้!</h4><p style="color:var(--muted);font-size:13px">อยากหาเพื่อนตีแบดแบบชิล ๆ Beginner ก็มาได้ นัดที่สนามใกล้สาขา เวลา 16:00 น.</p><div class="buddy-meta"><span>📅 อา. 13 ก.ย.</span><span>🕓 16:00</span><span>📍 Badminton Court</span><span class="people-count">👥 2/4 คน</span></div><div class="buddy-progress"><i style="width:50%"></i></div><div class="buddy-actions"><button class="primary join-btn" onclick="joinBuddy(this,4)">Join · ขอเข้าร่วม</button><button class="secondary" onclick="openChat('Mint','🏸 Badminton Buddy')">💬 แชทกับ Mint</button></div></article>
+          <article class="buddy-post" data-joined="false"><div class="buddy-user"><div class="avatar-sm">P</div><div><b>Ploy</b><small>โพสต์เมื่อ 1 ชั่วโมงที่แล้ว</small></div></div><h4>🧘 Yoga Flow หลังเลิกเรียน</h4><p style="color:var(--muted);font-size:13px">หาเพื่อนไปคลาส Yoga ด้วยกัน ไม่ต้องมีพื้นฐานค่ะ</p><div class="buddy-meta"><span>📅 จ. 14 ก.ย.</span><span>🕕 18:00</span><span>📍 Wellness Studio</span><span class="people-count">👥 3/5 คน</span></div><div class="buddy-progress"><i style="width:60%"></i></div><div class="buddy-actions"><button class="primary join-btn" onclick="joinBuddy(this,5)">Join · ขอเข้าร่วม</button><button class="secondary" onclick="openChat('Ploy','🧘 Yoga Buddy')">💬 แชทกับ Ploy</button></div></article>
+        </div>
+      </div>
+      <aside class="app-panel" id="rewardArea">
+        <div class="reward-head"><div><div class="eyebrow">REWARDS</div><h3>Wellness Rewards</h3></div><span>🏆</span></div>
+        <div class="reward-card"><div style="font-size:12px;color:#7c642d">YOUR BALANCE</div><div class="reward-score"><span id="rewardPoints">680</span> pts</div><div class="reward-progress"><div id="rewardBar"></div></div><small>อีก 320 แต้ม ถึง Gold Member</small></div>
+        <div style="margin:17px 0 8px;font-weight:800">แลกสิทธิพิเศษ</div>
+        <div class="reward-list"><div class="reward-item"><div class="reward-icon">🥤</div><div style="flex:1"><b>ฟรี Healthy Drink 1 แก้ว</b><small>ใช้ 300 pts</small></div><button class="secondary" onclick="redeemReward(300,'Healthy Drink')">แลก</button></div><div class="reward-item"><div class="reward-icon">♨️</div><div style="flex:1"><b>Onsen Pass 1 ครั้ง</b><small>ใช้ 500 pts</small></div><button class="secondary" onclick="redeemReward(500,'Onsen Pass')">แลก</button></div><div class="reward-item"><div class="reward-icon">🎟️</div><div style="flex:1"><b>ส่วนลดคลาส 100 บาท</b><small>ใช้ 250 pts</small></div><button class="secondary" onclick="redeemReward(250,'Class Discount')">แลก</button></div></div>
+        <div style="margin-top:16px;padding:13px;background:var(--mint2);border-radius:15px;font-size:12px;line-height:1.6"><b>💡 วิธีรับแต้ม</b><br>Check-in เข้ายิม +50 pts · เข้าคลาส +80 pts · ชวน Buddy สำเร็จ +30 pts</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <section id="phase2">
   <div class="phase2-wrap">
     <div class="phase2-top">
@@ -1230,12 +1325,17 @@ Wellness Value Matcher · Combined Interactive Prototype
 </div>
 
 <div class="mobile-bottom-nav" id="mobileBottomNav">
-  <button data-target="home" onclick="show('home')"><span class="mi">⌂</span><span>หน้าหลัก</span></button>
-  <button data-target="compare" onclick="show('compare')"><span class="mi">⚖</span><span>แพ็กเกจ</span></button>
-  <button data-target="phase2" onclick="show('phase2')"><span class="mi">♡</span><span>Journey</span></button>
-  <button data-target="quiz" onclick="startQuiz()"><span class="mi">✦</span><span>Match</span></button>
+  <button data-target="dashboard" onclick="show('dashboard')"><span class="mi">⌂</span><span>Home</span></button>
+  <button data-target="dashboard" onclick="show('dashboard');setTimeout(()=>document.getElementById('buddyArea').scrollIntoView({behavior:'smooth'}),100)"><span class="mi">👥</span><span>Buddy</span></button>
+  <button data-target="dashboard" onclick="show('dashboard');setTimeout(()=>document.getElementById('rewardArea').scrollIntoView({behavior:'smooth'}),100)"><span class="mi">🎁</span><span>Rewards</span></button>
+  <button data-target="phase2" onclick="show('phase2')"><span class="mi">📅</span><span>Booking</span></button>
 </div>
 <button class="app-fab" onclick="startQuiz()" aria-label="เริ่มค้นหาแพ็กเกจ">✦</button>
+
+
+<div class="chat-modal" id="chatModal"><div class="modal-sheet"><div class="modal-top"><div><div class="eyebrow">BUDDY CHAT</div><h3 id="chatTitle">Chat</h3></div><button class="close-x" onclick="closeChat()">✕</button></div><div class="chat-messages" id="chatMessages"><div class="bubble">สวัสดีค่า สนใจมาเล่นด้วยกันได้เลย 😊</div><div class="bubble me">ได้เลย! ขอรายละเอียดสนามหน่อยค่ะ</div></div><div class="chat-input"><input id="chatInput" placeholder="พิมพ์ข้อความ..."><button class="primary" onclick="sendChat()">ส่ง</button></div></div></div>
+<div class="post-modal" id="postModal"><div class="modal-sheet"><div class="modal-top"><div><div class="eyebrow">CREATE BUDDY POST</div><h3>หาเพื่อนออกกำลังกาย</h3></div><button class="close-x" onclick="closePostModal()">✕</button></div><div class="post-form"><label>กิจกรรม</label><input id="postActivity" placeholder="เช่น ตีแบด, Yoga, วิ่ง"><label>รายละเอียด</label><input id="postDetail" placeholder="เช่น Beginner มาได้ นัดเล่นชิล ๆ"><div class="two"><div><label>วัน / เวลา</label><input id="postTime" placeholder="อา. 16:00"></div><div><label>ต้องการทั้งหมดกี่คน</label><input id="postPeople" type="number" min="2" max="20" value="4"></div></div><button class="primary" onclick="createBuddyPost()">โพสต์หา Buddy →</button></div></div></div>
+<div class="reward-toast" id="rewardToast">สำเร็จ</div>
 
 <script>
 /* =========================
@@ -1386,7 +1486,7 @@ let phase2Timer=null;
 /* =========================
    NAVIGATION (HISTORY STACK)
 ========================= */
-let historyStack = ['home'];
+let historyStack = ['login'];
 
 function show(id, isBack = false) {
   // Clear phase 2 timer if navigating away
@@ -1411,6 +1511,8 @@ function show(id, isBack = false) {
     target.classList.add("active");
   }
 
+  document.body.classList.toggle("login-mode", id === "login");
+
   window.scrollTo({
     top: 0,
     behavior: "smooth"
@@ -1432,6 +1534,23 @@ function goBack() {
   } else {
     show('home', true);
   }
+}
+
+/* =========================
+   LOGIN · PROTOTYPE ACCOUNT
+========================= */
+let currentUser=null;
+
+function loginAndStart(email){
+  currentUser={email:email || "demo@wellness.app"};
+  document.body.classList.remove("login-mode");
+  startQuiz();
+}
+
+function demoLogin(){
+  document.getElementById("loginEmail").value="demo@wellness.app";
+  document.getElementById("loginPassword").value="wellness";
+  loginAndStart("demo@wellness.app");
 }
 
 /* =========================
@@ -1616,7 +1735,10 @@ function makeResult(){
     `✓ งบประมาณของคุณประมาณ ฿${budget.toLocaleString()} ต่อเดือน`
   ].map(item=>`<div class="reason">${item}</div>`).join("");
 
-  show("result");
+  document.getElementById("dashPackage").textContent=pkg.name;
+  document.getElementById("dashPackageText").textContent=pkg.description;
+  document.getElementById("dashScore").textContent=score+"% Match";
+  show("dashboard");
 }
 
 /* =========================
@@ -1844,7 +1966,31 @@ function openPhase2(){
 
 /* Validation and Form helpers */
 document.addEventListener("DOMContentLoaded",()=>{
-  document.querySelector('.mobile-bottom-nav button[data-target="home"]')?.classList.add("active");
+  document.body.classList.add("login-mode");
+  document.querySelectorAll('.mobile-bottom-nav button').forEach(btn=>btn.classList.remove("active"));
+
+  const loginForm=document.getElementById("loginForm");
+  if(loginForm){
+    loginForm.addEventListener("submit",event=>{
+      event.preventDefault();
+      const email=document.getElementById("loginEmail").value.trim();
+      const password=document.getElementById("loginPassword").value;
+      const error=document.getElementById("loginError");
+      if(!email || !email.includes("@")){ error.textContent="กรุณากรอกอีเมลให้ถูกต้อง"; return; }
+      if(password.length<6){ error.textContent="รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร"; return; }
+      error.textContent="";
+      loginAndStart(email);
+    });
+  }
+  const togglePassword=document.getElementById("togglePassword");
+  if(togglePassword){
+    togglePassword.addEventListener("click",()=>{
+      const input=document.getElementById("loginPassword");
+      const showing=input.type==="text";
+      input.type=showing?"password":"text";
+      togglePassword.textContent=showing?"แสดง":"ซ่อน";
+    });
+  }
   const qr=document.getElementById("fakeQr");
   if(qr && !qr.children.length){
     for(let i=0;i<36;i++){
@@ -1906,6 +2052,33 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   }
 });
+
+
+/* ===== PHASE 2 BUDDY + REWARDS ===== */
+let rewardPoints=680;
+function joinBuddy(btn,maxPeople){
+  const post=btn.closest('.buddy-post');
+  if(post.dataset.joined==='true') return;
+  const count=post.querySelector('.people-count');
+  const match=count.textContent.match(/(\d+)\/(\d+)/);
+  let currentPeople=match?Number(match[1]):1;
+  const max=match?Number(match[2]):maxPeople;
+  if(currentPeople>=max){showToast('กลุ่มนี้เต็มแล้ว');return;}
+  currentPeople++; post.dataset.joined='true';
+  count.textContent=`👥 ${currentPeople}/${max} คน`;
+  post.querySelector('.buddy-progress i').style.width=`${Math.min(100,currentPeople/max*100)}%`;
+  btn.textContent='✓ ส่งคำขอแล้ว';btn.classList.add('join-done');
+  rewardPoints+=30;updateRewards();showToast('+30 pts · ส่งคำขอเข้าร่วมแล้ว');
+}
+function openChat(name,topic){document.getElementById('chatTitle').textContent=topic+' · '+name;document.getElementById('chatModal').classList.add('open');}
+function closeChat(){document.getElementById('chatModal').classList.remove('open');}
+function sendChat(){const input=document.getElementById('chatInput');const text=input.value.trim();if(!text)return;const b=document.createElement('div');b.className='bubble me';b.textContent=text;document.getElementById('chatMessages').appendChild(b);input.value='';document.getElementById('chatMessages').scrollTop=99999;}
+function openPostModal(){document.getElementById('postModal').classList.add('open');}
+function closePostModal(){document.getElementById('postModal').classList.remove('open');}
+function createBuddyPost(){const activity=document.getElementById('postActivity').value.trim();const detail=document.getElementById('postDetail').value.trim();const time=document.getElementById('postTime').value.trim();const max=Math.max(2,Number(document.getElementById('postPeople').value)||4);if(!activity||!time){alert('กรุณากรอกกิจกรรมและวัน/เวลา');return;}const article=document.createElement('article');article.className='buddy-post';article.dataset.joined='true';article.innerHTML=`<div class="buddy-user"><div class="avatar-sm">YOU</div><div><b>คุณ</b><small>เพิ่งโพสต์</small></div></div><h4>✨ หาเพื่อน ${activity}</h4><p style="color:var(--muted);font-size:13px">${detail||'มาร่วมกิจกรรมด้วยกันนะ!'}</p><div class="buddy-meta"><span>📅 ${time}</span><span class="people-count">👥 1/${max} คน</span></div><div class="buddy-progress"><i style="width:${100/max}%"></i></div><div class="buddy-actions"><button class="secondary" disabled>โพสต์ของคุณ</button><button class="secondary" onclick="openChat('Buddy Group','${activity.replace(/'/g,'')}')">💬 เปิดแชทกลุ่ม</button></div>`;document.getElementById('buddyFeed').prepend(article);closePostModal();showToast('โพสต์หา Buddy สำเร็จ ✓');}
+function updateRewards(){document.getElementById('rewardPoints').textContent=rewardPoints;document.getElementById('topPoints').textContent=rewardPoints;document.getElementById('rewardBar').style.width=Math.min(100,rewardPoints/1000*100)+'%';}
+function redeemReward(cost,name){if(rewardPoints<cost){showToast('แต้มยังไม่พอสำหรับ '+name);return;}rewardPoints-=cost;updateRewards();showToast('แลก '+name+' สำเร็จ 🎁');}
+function showToast(text){const t=document.getElementById('rewardToast');t.textContent=text;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
 
 </script>
 
