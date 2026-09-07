@@ -2,28 +2,8 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wellness Value Matcher</title>
-
-<!-- =========================
-     PWA & APP CONFIGURATION
-========================= -->
-<meta name="theme-color" content="#146b59">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('Service Worker Registered Successfully'))
-        .catch(err => console.error('Service Worker Registration Failed', err));
-    });
-  }
-</script>
-<!-- ========================= -->
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap');
@@ -50,10 +30,6 @@ body{
   background:var(--bg);
   color:var(--ink);
   font-family:"Noto Sans Thai","DM Sans",sans-serif;
-  /* ป้องกันการคลุมดำและซูมเวลาใช้งานแบบแอป */
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
 }
 
 button,input{
@@ -555,6 +531,87 @@ section.active{min-height:calc(100dvh - 146px);}
 @media(min-width:431px){body{padding:18px 0}.app{border-radius:28px;min-height:calc(100dvh - 36px);overflow:hidden}.mobile-bottom-nav{bottom:18px;border-radius:0 0 28px 28px}.app-fab{bottom:102px}}
 @media(max-width:360px){.hero h1,h1{font-size:33px}.activity-cards{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stats>div{text-align:left}}
 </style>
+
+<style>
+/* ===== RESPONSIVE MULTI-DEVICE LAYOUT v2 ===== */
+html,body{min-height:100%;background:var(--bg);}
+body{padding:0;overflow-x:hidden;}
+.app{width:100%;max-width:none;min-height:100dvh;margin:0;background:var(--bg);box-shadow:none;border-radius:0;padding-bottom:0;overflow:visible;}
+.mobile-bottom-nav,.app-fab{display:none;}
+nav{padding-left:clamp(18px,5vw,72px);padding-right:clamp(18px,5vw,72px);}
+.hero{width:min(1180px,100%);padding-left:clamp(20px,5vw,72px);padding-right:clamp(20px,5vw,72px);}
+.features{padding-left:clamp(20px,5vw,72px);padding-right:clamp(20px,5vw,72px);}
+section.active{min-height:0;}
+
+/* Tablet */
+@media (min-width:700px) and (max-width:1023px){
+  .hero{grid-template-columns:1fr 1fr;gap:28px;padding-top:42px;}
+  .hero h1,h1{font-size:clamp(42px,6vw,60px);}
+  .visual{display:block;min-height:400px;}
+  .phone{width:235px;height:430px;right:9%;top:18px;}
+  .features{grid-template-columns:repeat(3,1fr);}
+  .compare-grid{grid-template-columns:repeat(2,1fr);}
+  .compare-grid .plan:last-child{grid-column:1/-1;}
+  .result-top,.result-info{grid-template-columns:1fr 1fr;}
+  .detail-content{grid-template-columns:1fr 1fr;}
+  .activity-cards{grid-template-columns:repeat(4,1fr);}
+  .checkout-grid{grid-template-columns:1fr;}
+}
+
+/* Desktop / laptop */
+@media (min-width:1024px){
+  .navlinks{display:flex;}
+  .hero{display:grid;}
+  .visual{display:block;}
+  .features{grid-template-columns:repeat(3,1fr);}
+  .compare-grid{grid-template-columns:repeat(3,1fr);}
+  .result-top,.result-info{grid-template-columns:1.1fr .9fr;}
+  .detail-content{grid-template-columns:1fr 1fr;}
+  .checkout-grid{grid-template-columns:.9fr 1.1fr;}
+  .phase2-grid{grid-template-columns:280px 1fr;}
+  .member-panel{display:block;}
+}
+
+/* Phone */
+@media (max-width:699px){
+  body{background:var(--bg);}
+  .app{padding-bottom:82px;}
+  nav{height:64px;padding:0 16px;}
+  .navlinks{display:none;}
+  .brand{font-size:15px;}
+  .hero{display:block;padding:26px 18px 18px;}
+  .hero h1,h1{font-size:clamp(32px,10vw,40px);letter-spacing:-1px;}
+  .lead{font-size:14px;}
+  .visual{display:none;}
+  .features{grid-template-columns:1fr;padding:0 18px;}
+  .stats{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .quiz-wrap,.result-wrap,.compare-wrap,.detail-wrap,.checkout-wrap,.process-wrap,.success-wrap,.phase2-wrap{padding-left:14px;padding-right:14px;}
+  .quiz-card{padding:22px 17px;}
+  .question{font-size:22px;}
+  .result-top,.result-info,.detail-content,.checkout-grid,.phase2-grid,.booking-row{grid-template-columns:1fr;}
+  .compare-grid{grid-template-columns:1fr;}
+  .activity-cards{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .member-panel{display:none;}
+  .input-split,.bank-grid{grid-template-columns:1fr;}
+  .selected-package-banner{position:sticky;bottom:76px;}
+  .mobile-bottom-nav{display:grid;position:fixed;left:0;bottom:0;transform:none;width:100%;height:70px;border-radius:0;}
+  .app-fab{display:grid;position:fixed;right:16px;bottom:84px;}
+}
+
+/* Very small phone */
+@media (max-width:380px){
+  .stats{grid-template-columns:1fr;}
+  .activity-cards{grid-template-columns:1fr;}
+  .package-result-name{font-size:30px;}
+  .selected-package-main{display:block;}
+}
+
+/* Large desktop */
+@media (min-width:1440px){
+  .hero{max-width:1280px;}
+  .features,.compare-wrap,.phase2-wrap{max-width:1280px;}
+}
+</style>
 </head>
 
 <body>
@@ -563,7 +620,7 @@ section.active{min-height:calc(100dvh - 146px);}
 
 <nav>
   <div class="brand">
-    <div class="logo">&#x2665;&#xFE0E;</div>
+    <div class="logo">♥</div>
     Wellness Value Matcher
   </div>
 
@@ -1089,7 +1146,7 @@ Signature Package
 
     <div class="phase2-grid">
       <aside class="member-panel">
-        <div class="member-avatar">&#x2665;&#xFE0E;</div>
+        <div class="member-avatar">♥</div>
         <div class="eyebrow">WELCOME MEMBER</div>
         <h3>My Wellness</h3>
         <p>พร้อมเริ่มต้นกิจกรรมแรกของคุณ</p>
