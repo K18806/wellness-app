@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Wellness Value Matcher</title>
 
 <!-- =========================
@@ -12,11 +12,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.json">
-<!-- ไอคอนสำหรับ iOS (สร้างรูปลายสี่เหลี่ยมจัตุรัสชื่อ icon-192.png ไว้ในโฟลเดอร์ด้วยนะครับ) -->
 <link rel="apple-touch-icon" href="icon-192.png">
 
 <script>
-  // ลงทะเบียน Service Worker เพื่อให้แอปโหลดออฟไลน์และติดตั้งได้
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('sw.js')
@@ -58,10 +56,22 @@ body{
   -webkit-touch-callout: none;
 }
 
-button,input{ font:inherit; }
-button{ border:0; cursor:pointer; }
-a{ cursor:pointer; }
-.app{ min-height:100vh; }
+button,input{
+  font:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+a{
+  cursor:pointer;
+}
+
+.app{
+  min-height:100vh;
+}
 
 /* NAV */
 nav{
@@ -77,54 +87,317 @@ nav{
   top:0;
   z-index:50;
 }
-.brand{ display:flex; align-items:center; gap:10px; font-family:"DM Sans","Noto Sans Thai"; font-size:19px; font-weight:800; }
-.logo{ width:39px; height:39px; border-radius:13px; display:grid; place-items:center; background:linear-gradient(145deg,#1b806b,#0b443a); color:white; box-shadow:0 8px 20px rgba(20,107,89,.2); }
-.navlinks{ display:flex; align-items:center; gap:22px; font-size:14px; color:var(--muted); }
-.navlinks button{ background:transparent; color:inherit; }
-.navlinks button:hover{ color:var(--green); }
-.navcta{ background:var(--green)!important; color:white!important; padding:10px 18px; border-radius:999px; }
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:"DM Sans","Noto Sans Thai";
+  font-size:19px;
+  font-weight:800;
+}
+
+.logo{
+  width:39px;
+  height:39px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#1b806b,#0b443a);
+  color:white;
+  box-shadow:0 8px 20px rgba(20,107,89,.2);
+}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.navlinks button{
+  background:transparent;
+  color:inherit;
+}
+
+.navlinks button:hover{
+  color:var(--green);
+}
+
+.navcta{
+  background:var(--green)!important;
+  color:white!important;
+  padding:10px 18px;
+  border-radius:999px;
+}
 
 /* GENERAL */
-section{ display:none; }
-section.active{ display:block; }
-.primary{ background:var(--green); color:white; padding:14px 22px; border-radius:14px; font-weight:700; transition:.2s; box-shadow:0 10px 20px rgba(20,107,89,.15); }
-.primary:hover{ transform:translateY(-2px); background:var(--green-dark); }
-.secondary{ background:white; color:var(--ink); padding:13px 20px; border-radius:14px; border:1px solid var(--line); font-weight:600; transition:.2s; }
-.secondary:hover{ border-color:var(--green); background:var(--mint2); }
-.small-detail{ display:inline-block; margin-top:15px; color:var(--green); font-size:14px; text-decoration:underline; text-underline-offset:3px; background:none; padding:0; }
-.small-detail:hover{ color:var(--green-dark); }
-.back-link { background: none; color: var(--green); padding: 0; font-size: 14px; font-weight: 600; margin-bottom: 20px; display: inline-block; }
-.back-link:hover { text-decoration: underline; }
+section{
+  display:none;
+}
+
+section.active{
+  display:block;
+}
+
+.primary{
+  background:var(--green);
+  color:white;
+  padding:14px 22px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.2s;
+  box-shadow:0 10px 20px rgba(20,107,89,.15);
+}
+
+.primary:hover{
+  transform:translateY(-2px);
+  background:var(--green-dark);
+}
+
+.secondary{
+  background:white;
+  color:var(--ink);
+  padding:13px 20px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  font-weight:600;
+  transition:.2s;
+}
+
+.secondary:hover{
+  border-color:var(--green);
+  background:var(--mint2);
+}
+
+.small-detail{
+  display:inline-block;
+  margin-top:15px;
+  color:var(--green);
+  font-size:14px;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  background:none;
+  padding:0;
+}
+
+.small-detail:hover{
+  color:var(--green-dark);
+}
+
+.back-link {
+  background: none;
+  color: var(--green);
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
 
 /* HOME */
-.hero{ max-width:1180px; margin:auto; padding:65px 7vw 35px; display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center; }
-.badge{ display:inline-flex; padding:7px 13px; border-radius:999px; background:var(--mint); color:var(--green); font-size:13px; font-weight:700; }
-h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line-height:1.08; letter-spacing:-2px; margin:17px 0; }
-.accent{ color:var(--green); }
-.lead{ max-width:590px; font-size:17px; line-height:1.8; color:var(--muted); }
-.actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:24px; }
-.stats{ display:flex; gap:30px; margin-top:32px; }
-.stats b{ display:block; font-size:20px; }
-.stats span{ color:var(--muted); font-size:12px; }
-.visual{ min-height:470px; position:relative; overflow:hidden; border-radius:34px; background: radial-gradient(circle at 25% 20%,#d8f2e7,transparent 32%), linear-gradient(135deg,#eff7f3,#d9eee5); }
-.orb{ position:absolute; border-radius:50%; }
-.o1{ width:220px; height:220px; background:#abdcc7; right:-45px; top:-50px; }
-.o2{ width:150px; height:150px; background:#f5dba1; left:-40px; bottom:-30px; }
-.phone{ position:absolute; width:280px; height:500px; right:15%; top:25px; padding:9px; border-radius:36px; background:#18332d; transform:rotate(4deg); box-shadow:0 25px 45px rgba(20,50,42,.28); }
-.screen{ height:100%; padding:22px 17px; border-radius:28px; background:white; }
-.notch{ width:84px; height:19px; border-radius:20px; background:#18332d; margin:-14px auto 17px; }
-.welcome-card{ padding:17px; border-radius:20px; background:linear-gradient(145deg,#1c7562,#0c4b40); color:white; }
-.welcome-card h3{ margin:8px 0; }
-.service-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:9px; margin-top:14px; }
-.service{ padding:11px; border-radius:14px; background:#f4f7f5; text-align:center; font-size:12px; }
-.section-title{ text-align:center; padding:35px 20px 5px; }
-.section-title h2{ font-size:34px; margin:0; }
-.section-title p{ color:var(--muted); }
-.features{ max-width:1100px; margin:20px auto 60px; padding:0 7vw; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.feature{ background:white; border:1px solid var(--line); border-radius:22px; padding:23px; }
-.feature .icon{ width:50px; height:50px; border-radius:15px; display:grid; place-items:center; background:var(--mint); font-size:24px; }
-.feature h3{ margin:14px 0 5px; }
-.feature p{ margin:0; color:var(--muted); font-size:14px; line-height:1.7; }
+.hero{
+  max-width:1180px;
+  margin:auto;
+  padding:65px 7vw 35px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:50px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-flex;
+  padding:7px 13px;
+  border-radius:999px;
+  background:var(--mint);
+  color:var(--green);
+  font-size:13px;
+  font-weight:700;
+}
+
+h1{
+  font-family:"DM Sans","Noto Sans Thai";
+  font-size:clamp(44px,6vw,74px);
+  line-height:1.08;
+  letter-spacing:-2px;
+  margin:17px 0;
+}
+
+.accent{
+  color:var(--green);
+}
+
+.lead{
+  max-width:590px;
+  font-size:17px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+
+.stats{
+  display:flex;
+  gap:30px;
+  margin-top:32px;
+}
+
+.stats b{
+  display:block;
+  font-size:20px;
+}
+
+.stats span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.visual{
+  min-height:470px;
+  position:relative;
+  overflow:hidden;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 25% 20%,#d8f2e7,transparent 32%),
+    linear-gradient(135deg,#eff7f3,#d9eee5);
+}
+
+.orb{
+  position:absolute;
+  border-radius:50%;
+}
+
+.o1{
+  width:220px;
+  height:220px;
+  background:#abdcc7;
+  right:-45px;
+  top:-50px;
+}
+
+.o2{
+  width:150px;
+  height:150px;
+  background:#f5dba1;
+  left:-40px;
+  bottom:-30px;
+}
+
+.phone{
+  position:absolute;
+  width:280px;
+  height:500px;
+  right:15%;
+  top:25px;
+  padding:9px;
+  border-radius:36px;
+  background:#18332d;
+  transform:rotate(4deg);
+  box-shadow:0 25px 45px rgba(20,50,42,.28);
+}
+
+.screen{
+  height:100%;
+  padding:22px 17px;
+  border-radius:28px;
+  background:white;
+}
+
+.notch{
+  width:84px;
+  height:19px;
+  border-radius:20px;
+  background:#18332d;
+  margin:-14px auto 17px;
+}
+
+.welcome-card{
+  padding:17px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#1c7562,#0c4b40);
+  color:white;
+}
+
+.welcome-card h3{
+  margin:8px 0;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+  margin-top:14px;
+}
+
+.service{
+  padding:11px;
+  border-radius:14px;
+  background:#f4f7f5;
+  text-align:center;
+  font-size:12px;
+}
+
+.section-title{
+  text-align:center;
+  padding:35px 20px 5px;
+}
+
+.section-title h2{
+  font-size:34px;
+  margin:0;
+}
+
+.section-title p{
+  color:var(--muted);
+}
+
+.features{
+  max-width:1100px;
+  margin:20px auto 60px;
+  padding:0 7vw;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.feature{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:23px;
+}
+
+.feature .icon{
+  width:50px;
+  height:50px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:var(--mint);
+  font-size:24px;
+}
+
+.feature h3{
+  margin:14px 0 5px;
+}
+
+.feature p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+}
 
 /* QUIZ */
 .quiz-wrap{ max-width:830px; margin:35px auto; padding:0 20px; }
@@ -252,7 +525,35 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
 @media(max-width:700px){ .selected-package-banner{ align-items:stretch; flex-direction:column; padding:20px; } .selected-package-actions, .checkout-continue{ width:100%; } }
 
 /* FOOTER */
-.footer { text-align: center; padding: 28px; color: var(--muted); font-size: 13px; }
+.footer {
+  text-align: center;
+  padding: 28px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+</style>
+
+<style>
+/* ===== MOBILE APP SHELL OVERRIDE ===== */
+html,body{min-height:100%;background:#e9efec;}
+body{overflow-x:hidden;}
+.app{width:min(100%,430px);min-height:100dvh;margin:0 auto;background:var(--bg);position:relative;box-shadow:0 0 55px rgba(24,51,45,.16);padding-bottom:82px;}
+nav{height:64px;padding:0 18px;position:sticky;top:0;width:100%;background:rgba(255,255,255,.94);}
+.brand{font-size:15px;gap:8px}.logo{width:34px;height:34px;border-radius:11px}.navlinks{display:none;}
+section.active{min-height:calc(100dvh - 146px);}
+.hero{display:block;padding:28px 20px 18px}.hero h1,h1{font-size:38px;letter-spacing:-1.3px}.lead{font-size:14px;line-height:1.7}.actions{display:grid;grid-template-columns:1fr;margin-top:20px}.actions button{width:100%}.stats{gap:8px;display:grid;grid-template-columns:repeat(3,1fr);margin-top:24px}.stats>div{background:white;border:1px solid var(--line);border-radius:16px;padding:12px 8px;text-align:center}.stats b{font-size:15px}.stats span{font-size:9px;line-height:1.3;display:block;margin-top:3px}.visual{display:none}.section-title{padding:26px 20px 5px}.section-title h2{font-size:25px}.section-title p{font-size:13px}.features{grid-template-columns:1fr;padding:0 20px;margin:16px auto 28px}.feature{padding:18px;border-radius:20px}.feature .icon{width:44px;height:44px}.footer{padding:20px 15px 8px;font-size:10px}
+.quiz-wrap,.result-wrap,.compare-wrap,.detail-wrap,.checkout-wrap,.process-wrap,.success-wrap,.phase2-wrap{margin:18px auto 28px;padding:0 16px}.quiz-card{padding:23px 18px;border-radius:24px}.question{font-size:23px;line-height:1.35}.option{padding:14px;border-radius:14px}.quiz-footer{position:sticky;bottom:78px;background:linear-gradient(transparent,var(--bg) 25%);padding-top:18px}.quiz-footer button{flex:1}.back-link{margin-bottom:13px}
+.result-hero{padding:24px 19px;border-radius:26px}.result-top,.result-info{grid-template-columns:1fr}.package-result-name{font-size:34px}.match-score-card{padding:20px}.score-circle{width:132px;height:132px}.score-circle::before{width:106px;height:106px}.score-num{font-size:35px}.reason-card,.summary-card{padding:21px;border-radius:22px}.result-price{font-size:33px}
+.compare-grid{grid-template-columns:1fr;gap:12px}.plan{min-height:auto;padding:22px;border-radius:23px}.plan h2{font-size:25px}.plan-price{font-size:32px}.plan ul{line-height:2}.selected-package-banner{position:sticky;bottom:76px;z-index:20;border-radius:20px;padding:16px}.selected-package-main h3{font-size:19px}.selected-package-price{font-size:20px}.selected-package-note{display:none}.table-card{border-radius:20px}.table-card table{min-width:560px}
+.detail-card{padding:22px 18px;border-radius:24px}.detail-header{display:block}.detail-price{font-size:34px;margin-top:18px}.detail-content{grid-template-columns:1fr}.detail-box{padding:18px}
+.checkout-head{display:block}.checkout-head h2{font-size:27px}.checkout-grid{grid-template-columns:1fr}.order-card,.method-card,.process-card,.success-card{padding:20px 17px;border-radius:24px}.order-plan{padding:19px}.order-price{font-size:32px}.stepper{margin-bottom:22px}.payment-tabs{display:grid;grid-template-columns:1fr}.pay-tab{padding:13px}.input-split{grid-template-columns:1fr}.qr-box{flex-direction:column;text-align:center}.bank-grid{grid-template-columns:1fr}.process-card,.success-card{padding:34px 19px}.process-card h2,.success-card h2{font-size:28px}.success-actions{flex-direction:column}.success-actions button{width:100%}
+.phase2-top,.booking-header,.coming-overlay{flex-direction:column;align-items:flex-start}.phase2-title h2{font-size:29px}.phase2-grid{grid-template-columns:1fr}.member-panel{display:none}.booking-panel{padding:20px 17px;border-radius:24px}.activity-cards{grid-template-columns:1fr 1fr}.booking-row{grid-template-columns:1fr}.phase2-actions{flex-direction:column}.phase2-actions button{width:100%}
+.mobile-bottom-nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(100%,430px);height:70px;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:100;padding:7px 8px max(7px,env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(24,51,45,.06)}
+.mobile-bottom-nav button{background:transparent;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:9px;font-weight:600;border-radius:12px}.mobile-bottom-nav button .mi{font-size:19px;line-height:1}.mobile-bottom-nav button.active{color:var(--green);background:var(--mint2)}
+.app-fab{position:fixed;right:max(calc((100vw - 430px)/2 + 16px),16px);bottom:84px;width:54px;height:54px;border-radius:18px;background:var(--green);color:white;font-size:23px;z-index:90;box-shadow:0 12px 25px rgba(20,107,89,.3);display:grid;place-items:center}
+@media(min-width:431px){body{padding:18px 0}.app{border-radius:28px;min-height:calc(100dvh - 36px);overflow:hidden}.mobile-bottom-nav{bottom:18px;border-radius:0 0 28px 28px}.app-fab{bottom:102px}}
+@media(max-width:360px){.hero h1,h1{font-size:33px}.activity-cards{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stats>div{text-align:left}}
 </style>
 </head>
 
@@ -294,9 +595,18 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
     <button class="secondary" onclick="show('compare')">ดูและเปรียบเทียบแพ็กเกจ</button>
   </div>
   <div class="stats">
-    <div><b>7 คำถาม</b><span>ตอบตามไลฟ์สไตล์ของคุณ</span></div>
-    <div><b>3 แพ็กเกจ</b><span>Signature · Core · U-Rate</span></div>
-    <div><b>For You</b><span>พร้อมเหตุผลประกอบ</span></div>
+    <div>
+      <b>7 คำถาม</b>
+      <span>ตอบตามไลฟ์สไตล์ของคุณ</span>
+    </div>
+    <div>
+      <b>3 แพ็กเกจ</b>
+      <span>Signature · Core · U-Rate</span>
+    </div>
+    <div>
+      <b>For You</b>
+      <span>พร้อมเหตุผลประกอบ</span>
+    </div>
   </div>
 </div>
 
@@ -307,12 +617,24 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
     <div class="screen">
       <div class="notch"></div>
       <div style="font-size:11px;color:#6f7e78">สวัสดี 👋</div>
-      <h3 style="margin:7px 0 16px">วันนี้อยากดูแล<br>ตัวเองแบบไหน?</h3>
+      <h3 style="margin:7px 0 16px">
+        วันนี้อยากดูแล<br>
+        ตัวเองแบบไหน?
+      </h3>
       <div class="welcome-card">
-        <div style="font-size:11px;opacity:.8">PERSONALIZED FOR YOU</div>
+        <div style="font-size:11px;opacity:.8">
+          PERSONALIZED FOR YOU
+        </div>
         <h3>ค้นหาแพ็กเกจที่ใช่</h3>
-        <div style="font-size:12px;opacity:.8">เริ่มจากตอบคำถามเกี่ยวกับคุณ</div>
-        <button style="margin-top:14px;background:white;color:#146b59;padding:9px 14px;border-radius:10px;font-size:12px;font-weight:700" onclick="startQuiz()">เริ่มเลย</button>
+        <div style="font-size:12px;opacity:.8">
+          เริ่มจากตอบคำถามเกี่ยวกับคุณ
+        </div>
+        <button
+          style="margin-top:14px;background:white;color:#146b59;padding:9px 14px;border-radius:10px;font-size:12px;font-weight:700"
+          onclick="startQuiz()"
+        >
+          เริ่มเลย
+        </button>
       </div>
       <div class="service-grid">
         <div class="service">🏋️ Fitness</div>
@@ -369,8 +691,12 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
   <div class="options" id="options"></div>
   <div id="budgetArea"></div>
   <div class="quiz-footer">
-    <button class="secondary" onclick="prevQ()" id="backBtn">← ย้อนกลับ</button>
-    <button class="primary" onclick="nextQ()" id="nextBtn">ถัดไป →</button>
+    <button class="secondary" onclick="prevQ()" id="backBtn">
+      ← ย้อนกลับ
+    </button>
+    <button class="primary" onclick="nextQ()" id="nextBtn">
+      ถัดไป →
+    </button>
   </div>
 </div>
 </div>
@@ -385,13 +711,29 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
 <div class="result-hero">
 <div class="result-top">
 <div>
-<div class="result-badge">✦ YOUR WELLNESS MATCH</div>
-<div class="result-title">🎉 แพ็กเกจที่เหมาะกับคุณที่สุด</div>
-<h1 class="package-result-name" id="packageName">Signature Package</h1>
-<p class="result-desc" id="resultDescription">แพ็กเกจนี้เหมาะกับรูปแบบการใช้ชีวิตและความสนใจของคุณ</p>
+<div class="result-badge">
+  ✦ YOUR WELLNESS MATCH
+</div>
+<div class="result-title">
+  🎉 แพ็กเกจที่เหมาะกับคุณที่สุด
+</div>
+<h1 class="package-result-name" id="packageName">
+  Signature Package
+</h1>
+<p class="result-desc" id="resultDescription">
+  แพ็กเกจนี้เหมาะกับรูปแบบการใช้ชีวิตและความสนใจของคุณ
+</p>
 <div class="actions">
-  <button class="primary" style="background:white;color:#146b59" onclick="goPayment()">เลือกแพ็กเกจนี้ →</button>
-  <button class="small-detail" style="color:#d4eee5" onclick="openPackageDetail(selectedPackage)">ดูรายละเอียดเพิ่มเติม</button>
+  <button class="primary" style="background:white;color:#146b59" onclick="goPayment()">
+    เลือกแพ็กเกจนี้ →
+  </button>
+  <button
+    class="small-detail"
+    style="color:#d4eee5"
+    onclick="openPackageDetail(selectedPackage)"
+  >
+    ดูรายละเอียดเพิ่มเติม
+  </button>
 </div>
 </div>
 <div class="match-score-card">
@@ -401,7 +743,9 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
     <div class="score-label">MATCH SCORE</div>
   </div>
 </div>
-<p style="font-size:13px;color:#c8ddd6;margin:17px 0 0">วิเคราะห์จากเป้าหมาย กิจกรรม ความถี่ และงบประมาณของคุณ</p>
+<p style="font-size:13px;color:#c8ddd6;margin:17px 0 0">
+  วิเคราะห์จากเป้าหมาย กิจกรรม ความถี่ และงบประมาณของคุณ
+</p>
 </div>
 </div>
 </div>
@@ -414,10 +758,18 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
 <div class="summary-card">
 <div class="eyebrow">YOUR PACKAGE</div>
 <h3 id="summaryPackage">Signature Package</h3>
-<div class="result-price" id="packagePrice">฿3,000</div>
-<div style="color:var(--muted);font-size:13px">ต่อเดือน</div>
-<p class="result-summary" id="summaryText">ครอบคลุมกิจกรรมหลากหลาย เหมาะสำหรับคนที่ต้องการดูแลสุขภาพแบบครบด้าน</p>
-<button class="secondary" style="width:100%" onclick="show('compare')">เปรียบเทียบกับแพ็กเกจอื่น</button>
+<div class="result-price" id="packagePrice">
+  ฿3,000
+</div>
+<div style="color:var(--muted);font-size:13px">
+  ต่อเดือน
+</div>
+<p class="result-summary" id="summaryText">
+  ครอบคลุมกิจกรรมหลากหลาย เหมาะสำหรับคนที่ต้องการดูแลสุขภาพแบบครบด้าน
+</p>
+<button class="secondary" style="width:100%" onclick="show('compare')">
+  เปรียบเทียบกับแพ็กเกจอื่น
+</button>
 </div>
 </div>
 </div>
@@ -444,21 +796,53 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
     <p class="selected-package-note">ตรวจสอบแพ็กเกจให้เรียบร้อย แล้วดำเนินการต่อเพื่อเลือกวิธีชำระเงิน</p>
   </div>
   <div class="selected-package-actions">
-    <button class="primary checkout-continue" onclick="goPayment()">ดำเนินการชำระเงิน <span>→</span></button>
+    <button class="primary checkout-continue" onclick="goPayment()">
+      ดำเนินการชำระเงิน <span>→</span>
+    </button>
   </div>
 </div>
 
 <div class="table-card">
 <table>
 <thead>
-<tr><th>บริการ</th><th>Signature</th><th>Core</th><th>U-Rate</th></tr>
+<tr>
+  <th>บริการ</th>
+  <th>Signature</th>
+  <th>Core</th>
+  <th>U-Rate</th>
+</tr>
 </thead>
 <tbody>
-<tr><td>Fitness</td><td>✓</td><td>✓</td><td>✓</td></tr>
-<tr><td>Yoga</td><td>✓</td><td>✓</td><td>–</td></tr>
-<tr><td>Pilates</td><td>✓</td><td>–</td><td>–</td></tr>
-<tr><td>Muay Thai</td><td>✓</td><td>–</td><td>–</td></tr>
-<tr><td>Onsen</td><td>✓</td><td>–</td><td>–</td></tr>
+<tr>
+  <td>Fitness</td>
+  <td>✓</td>
+  <td>✓</td>
+  <td>✓</td>
+</tr>
+<tr>
+  <td>Yoga</td>
+  <td>✓</td>
+  <td>✓</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>Pilates</td>
+  <td>✓</td>
+  <td>–</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>Muay Thai</td>
+  <td>✓</td>
+  <td>–</td>
+  <td>–</td>
+</tr>
+<tr>
+  <td>Onsen</td>
+  <td>✓</td>
+  <td>–</td>
+  <td>–</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -470,19 +854,32 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
 
 <section id="detail">
 <div class="detail-wrap">
-<button class="back-link" onclick="goBack()">← ย้อนกลับ</button>
+<button class="back-link" onclick="goBack()">
+  ← ย้อนกลับ
+</button>
 <div class="detail-card">
 <div class="detail-header">
 <div>
-<div class="eyebrow" id="detailType">SIGNATURE</div>
-<h1 style="font-size:42px;margin:8px 0" id="detailName">Signature Package</h1>
-<p style="color:var(--muted);margin:0" id="detailDescription">แพ็กเกจสำหรับการดูแลสุขภาพอย่างครบครัน</p>
+<div class="eyebrow" id="detailType">
+SIGNATURE
+</div>
+<h1 style="font-size:42px;margin:8px 0" id="detailName">
+Signature Package
+</h1>
+<p style="color:var(--muted);margin:0" id="detailDescription">
+แพ็กเกจสำหรับการดูแลสุขภาพอย่างครบครัน
+</p>
 </div>
 <div>
-<div class="detail-price" id="detailPrice">฿3,000</div>
-<div style="color:var(--muted)">ต่อเดือน</div>
+<div class="detail-price" id="detailPrice">
+฿3,000
+</div>
+<div style="color:var(--muted)">
+ต่อเดือน
 </div>
 </div>
+</div>
+
 <div class="detail-content">
 <div class="detail-box">
 <h3>สิ่งที่รวมอยู่ในแพ็กเกจ</h3>
@@ -492,7 +889,9 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
 <h3>เหมาะสำหรับ</h3>
 <p id="detailSuitable" style="color:var(--muted);line-height:1.8"></p>
 <div class="actions">
-  <button class="primary" onclick="selectDetailPackage()">เลือกแพ็กเกจนี้ →</button>
+  <button class="primary" onclick="selectDetailPackage()">
+    เลือกแพ็กเกจนี้ →
+  </button>
 </div>
 </div>
 </div>
@@ -513,6 +912,7 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
       </div>
       <div class="secure">🔒 Secure Checkout</div>
     </div>
+
     <div class="checkout-grid">
       <div class="order-card">
         <div class="order-plan">
@@ -522,15 +922,27 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
           <small>ต่อเดือน</small>
           <div class="mini-services" id="checkoutServices"></div>
         </div>
-        <div class="summary-row"><span>ค่าบริการเดือนแรก</span><b id="subTotal">฿3,000</b></div>
-        <div class="summary-row"><span>ภาษีมูลค่าเพิ่ม 7%</span><b id="vat">฿210</b></div>
-        <div class="summary-row total"><span>ยอดชำระวันนี้</span><b id="grandTotal">฿3,210</b></div>
+
+        <div class="summary-row">
+          <span>ค่าบริการเดือนแรก</span>
+          <b id="subTotal">฿3,000</b>
+        </div>
+        <div class="summary-row">
+          <span>ภาษีมูลค่าเพิ่ม 7%</span>
+          <b id="vat">฿210</b>
+        </div>
+        <div class="summary-row total">
+          <span>ยอดชำระวันนี้</span>
+          <b id="grandTotal">฿3,210</b>
+        </div>
       </div>
 
       <div class="method-card">
         <div class="stepper">
-          <div class="step-item active">1<br><span>เลือกแพ็กเกจ</span></div><div class="step-line"></div>
-          <div class="step-item active">2<br><span>ชำระเงิน</span></div><div class="step-line"></div>
+          <div class="step-item active">1<br><span>เลือกแพ็กเกจ</span></div>
+          <div class="step-line"></div>
+          <div class="step-item active">2<br><span>ชำระเงิน</span></div>
+          <div class="step-line"></div>
           <div class="step-item">3<br><span>เสร็จสิ้น</span></div>
         </div>
 
@@ -544,13 +956,25 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
         <div id="cardForm">
           <label>หมายเลขบัตร</label>
           <input id="cardNumber" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19">
+
           <label>ชื่อบนบัตร</label>
           <input id="cardName" autocomplete="cc-name" placeholder="ชื่อ - นามสกุล">
+
           <div class="input-split">
-            <div><label>วันหมดอายุ</label><input id="cardExpiry" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5"></div>
-            <div><label>CVV</label><input id="cardCvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="3"></div>
+            <div>
+              <label>วันหมดอายุ</label>
+              <input id="cardExpiry" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5">
+            </div>
+            <div>
+              <label>CVV</label>
+              <input id="cardCvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="3">
+            </div>
           </div>
-          <label class="check-row"><input type="checkbox" checked>บันทึกข้อมูลบัตรสำหรับการชำระครั้งถัดไป</label>
+
+          <label class="check-row">
+            <input type="checkbox" checked>
+            บันทึกข้อมูลบัตรสำหรับการชำระครั้งถัดไป
+          </label>
         </div>
 
         <div id="qrForm" style="display:none">
@@ -569,6 +993,7 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
             <b>เลือกธนาคารที่ต้องการชำระ</b>
             <p>เมื่อยืนยัน ระบบจะจำลองการเชื่อมต่อไปยัง Mobile Banking ของธนาคารที่เลือก</p>
           </div>
+
           <div class="bank-grid" role="group" aria-label="เลือกธนาคารสำหรับ Mobile Banking">
             <button type="button" class="bank-option" data-bank="K PLUS" onclick="selectBank('K PLUS',this)">
               <span class="bank-logo kbank">K+</span>
@@ -611,7 +1036,11 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
       <h2>กำลังดำเนินการชำระเงิน</h2>
       <p>กรุณารอสักครู่ ระบบกำลังตรวจสอบรายการของคุณ</p>
       <div class="process-line"><div id="processFill"></div></div>
-      <div class="process-status"><span>กำลังตรวจสอบ</span><span>กำลังยืนยัน</span><span>เสร็จสมบูรณ์</span></div>
+      <div class="process-status">
+        <span>กำลังตรวจสอบ</span>
+        <span>กำลังยืนยัน</span>
+        <span>เสร็จสมบูรณ์</span>
+      </div>
       <div class="cancel-note">หากใช้เวลานานเกิน 10 นาที คำขอจะถูกยกเลิกโดยอัตโนมัติ</div>
     </div>
   </div>
@@ -624,6 +1053,7 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
       <div class="eyebrow">PAYMENT SUCCESSFUL</div>
       <h2>ชำระเงินสำเร็จ! 🎉</h2>
       <p>แพ็กเกจของคุณเปิดใช้งานแล้ว ขั้นตอนถัดไปคือการเลือกกิจกรรมและจองช่วงเวลา</p>
+
       <div class="receipt">
         <div><span>แพ็กเกจ</span><b id="successPackage">Signature Package</b></div>
         <div><span>ยอดชำระ</span><b id="successAmount">฿3,210</b></div>
@@ -631,10 +1061,12 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
         <div><span>หมายเลขคำสั่งซื้อ</span><b id="orderId">#WVM-2026-001</b></div>
         <div><span>สถานะ</span><b class="paid">ชำระเงินแล้ว</b></div>
       </div>
+
       <div class="success-actions">
         <button class="secondary" onclick="alert('จำลองการดาวน์โหลดใบเสร็จเรียบร้อย ✓')">⌄ ดูใบเสร็จ</button>
         <button class="primary" onclick="openPhase2()">ดำเนินการต่อ · จองกิจกรรม →</button>
       </div>
+
       <div class="auto-next">
         กำลังพาไปยังขั้นตอนการจองใน
         <span class="countdown" id="phase2Countdown">5</span>
@@ -654,16 +1086,19 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
       </div>
       <div class="phase2-pill">✓ Membership Active &nbsp;·&nbsp; Next: Book your activity</div>
     </div>
+
     <div class="phase2-grid">
       <aside class="member-panel">
         <div class="member-avatar">&#x2665;&#xFE0E;</div>
         <div class="eyebrow">WELCOME MEMBER</div>
         <h3>My Wellness</h3>
         <p>พร้อมเริ่มต้นกิจกรรมแรกของคุณ</p>
+
         <div class="member-package">
           <small>ACTIVE PACKAGE</small>
           <b id="phase2Package">Signature Package</b>
         </div>
+
         <div class="booking-steps">
           <div class="booking-step current"><span class="step-dot">1</span>เลือกกิจกรรม</div>
           <div class="booking-step"><span class="step-dot">2</span>เลือกวันและเวลา</div>
@@ -689,6 +1124,7 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
             <div class="activity-card"><div class="emoji">🥊</div><b>Muay Thai</b><small>45 นาที · Group</small></div>
             <div class="activity-card"><div class="emoji">♨️</div><b>Onsen</b><small>Relax · 60 นาที</small></div>
           </div>
+
           <div class="booking-label">เลือกวันและช่วงเวลา</div>
           <div class="booking-row">
             <div class="calendar-preview">
@@ -699,6 +1135,7 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
                 <span class="date">7</span><span class="date">8</span><span class="date picked">9</span><span class="date">10</span><span class="date">11</span><span class="date">12</span><span class="date">13</span>
               </div>
             </div>
+
             <div class="times-preview">
               <div class="calendar-head"><span>Available time</span><span>4 slots</span></div>
               <div class="time-chips">
@@ -718,6 +1155,7 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
             </div>
             <div class="coming-icon">📅</div>
           </div>
+
           <div class="phase2-actions">
             <button class="secondary" onclick="show('home')">← กลับหน้าหลัก</button>
             <button class="disabled-btn" disabled>ยืนยันการจอง · Coming Soon</button>
@@ -728,31 +1166,155 @@ h1{ font-family:"DM Sans","Noto Sans Thai"; font-size:clamp(44px,6vw,74px); line
   </div>
 </section>
 
-<div class="footer">Wellness Value Matcher · PWA Application</div>
+<div class="footer">
+Wellness Value Matcher · Combined Interactive Prototype
+</div>
 
 </div>
+
+<div class="mobile-bottom-nav" id="mobileBottomNav">
+  <button data-target="home" onclick="show('home')"><span class="mi">⌂</span><span>หน้าหลัก</span></button>
+  <button data-target="compare" onclick="show('compare')"><span class="mi">⚖</span><span>แพ็กเกจ</span></button>
+  <button data-target="phase2" onclick="show('phase2')"><span class="mi">♡</span><span>Journey</span></button>
+  <button data-target="quiz" onclick="startQuiz()"><span class="mi">✦</span><span>Match</span></button>
+</div>
+<button class="app-fab" onclick="startQuiz()" aria-label="เริ่มค้นหาแพ็กเกจ">✦</button>
 
 <script>
 /* =========================
    PACKAGE DATA
 ========================= */
 const packages={
-signature:{ type:"SIGNATURE", name:"Signature Package", price:3000, description:"แพ็กเกจแบบครบครันสำหรับคนที่ต้องการดูแลสุขภาพอย่างหลากหลาย", services:["Fitness","Yoga","Pilates","Muay Thai","Onsen"], suitable:"เหมาะสำหรับผู้ที่ต้องการกิจกรรมหลากหลายในแพ็กเกจเดียว และต้องการดูแลสุขภาพทั้งด้านร่างกายและการผ่อนคลาย" },
-core:{ type:"CORE", name:"Core Package", price:1800, description:"แพ็กเกจสำหรับการออกกำลังกายและดูแลสุขภาพในรูปแบบที่ใช้งานง่าย", services:["Fitness","Yoga","เลือกบริการหลัก","เหมาะกับการใช้งานทั่วไป"], suitable:"เหมาะสำหรับผู้ที่มีเป้าหมายหลักชัดเจน และต้องการใช้บริการออกกำลังกายเป็นประจำ" },
-urate:{ type:"U-RATE", name:"U-Rate Package", price:1200, description:"แพ็กเกจเริ่มต้นที่ยืดหยุ่นและเหมาะกับการใช้งานตามไลฟ์สไตล์", services:["Fitness","เหมาะสำหรับเริ่มต้น","ราคาประหยัด","ยืดหยุ่น"], suitable:"เหมาะสำหรับผู้เริ่มต้น หรือผู้ที่ต้องการควบคุมงบประมาณและเลือกใช้บริการแบบยืดหยุ่น" }
+signature:{
+  type:"SIGNATURE",
+  name:"Signature Package",
+  price:3000,
+  description:"แพ็กเกจแบบครบครันสำหรับคนที่ต้องการดูแลสุขภาพอย่างหลากหลาย",
+  services:[
+    "Fitness",
+    "Yoga",
+    "Pilates",
+    "Muay Thai",
+    "Onsen"
+  ],
+  suitable:"เหมาะสำหรับผู้ที่ต้องการกิจกรรมหลากหลายในแพ็กเกจเดียว และต้องการดูแลสุขภาพทั้งด้านร่างกายและการผ่อนคลาย"
+},
+core:{
+  type:"CORE",
+  name:"Core Package",
+  price:1800,
+  description:"แพ็กเกจสำหรับการออกกำลังกายและดูแลสุขภาพในรูปแบบที่ใช้งานง่าย",
+  services:[
+    "Fitness",
+    "Yoga",
+    "เลือกบริการหลัก",
+    "เหมาะกับการใช้งานทั่วไป"
+  ],
+  suitable:"เหมาะสำหรับผู้ที่มีเป้าหมายหลักชัดเจน และต้องการใช้บริการออกกำลังกายเป็นประจำ"
+},
+urate:{
+  type:"U-RATE",
+  name:"U-Rate Package",
+  price:1200,
+  description:"แพ็กเกจเริ่มต้นที่ยืดหยุ่นและเหมาะกับการใช้งานตามไลฟ์สไตล์",
+  services:[
+    "Fitness",
+    "เหมาะสำหรับเริ่มต้น",
+    "ราคาประหยัด",
+    "ยืดหยุ่น"
+  ],
+  suitable:"เหมาะสำหรับผู้เริ่มต้น หรือผู้ที่ต้องการควบคุมงบประมาณและเลือกใช้บริการแบบยืดหยุ่น"
+}
 };
 
 /* =========================
    QUIZ DATA
 ========================= */
 const questions=[
-{ q:"เพศของคุณคืออะไร?", e:"GENDER", help:"ช่วยให้เราปรับแต่งคำแนะนำที่เหมาะสมกับคุณ", type:"single", o:["ชาย","หญิง","ไม่ระบุ"] },
-{ q:"อาชีพของคุณคืออะไร?", e:"OCCUPATION", help:"ช่วยให้เราเข้าใจไลฟ์สไตล์และเวลาในการใช้บริการของคุณ", type:"single", o:["นักศึกษา","พนักงานเอกชน","ข้าราชการ/รัฐวิสาหกิจ","บุคลากรทางการแพทย์","อาจารย์/บุคลากรการศึกษา","ธุรกิจส่วนตัว/เจ้าของกิจการ"] },
-{ q:"เป้าหมายหลักของคุณคืออะไร?", e:"GOAL", help:"เลือกได้มากกว่าหนึ่งข้อ", type:"multi", o:["ลดน้ำหนัก","เพิ่มกล้ามเนื้อ","ดูแลสุขภาพ","ผ่อนคลาย / Wellness"] },
-{ q:"คุณออกกำลังกายบ่อยแค่ไหน?", e:"ACTIVITY", help:"เลือกคำตอบที่ใกล้เคียงกับคุณที่สุด", type:"single", o:["1–2 ครั้ง / สัปดาห์","3–4 ครั้ง / สัปดาห์","5 ครั้งขึ้นไป","เพิ่งเริ่มต้น"] },
-{ q:"คุณสนใจกิจกรรมอะไรเป็นพิเศษ?", e:"INTEREST", help:"เลือกได้มากกว่าหนึ่งข้อ", type:"multi", o:["Performance Fitness","Personal Training","Group Training Classes","Muay Thai","Pilates & Yoga","Sports Massage & Recovery","Onsen","Café & Co-working","Pickleball"] },
-{ q:"งบประมาณต่อเดือนของคุณคือเท่าไร?", e:"BUDGET", help:"กรอกจำนวนเงินที่คุณสะดวก", type:"budget" },
-{ q:"คุณอยากใช้บริการแบบไหน?", e:"PREFERENCE", help:"เลือกได้มากกว่าหนึ่งข้อ", type:"multi", o:["หลากหลายกิจกรรมในแพ็กเดียว","เน้นกิจกรรมหลัก","เลือกใช้แบบยืดหยุ่น","อยากให้ระบบช่วยเลือก"] }
+{
+  q:"เพศของคุณคืออะไร?",
+  e:"GENDER",
+  help:"ช่วยให้เราปรับแต่งคำแนะนำที่เหมาะสมกับคุณ",
+  type:"single",
+  o:[
+    "ชาย",
+    "หญิง",
+    "ไม่ระบุ"
+  ]
+},
+{
+  q:"อาชีพของคุณคืออะไร?",
+  e:"OCCUPATION",
+  help:"ช่วยให้เราเข้าใจไลฟ์สไตล์และเวลาในการใช้บริการของคุณ",
+  type:"single",
+  o:[
+    "นักศึกษา",
+    "พนักงานเอกชน",
+    "ข้าราชการ/รัฐวิสาหกิจ",
+    "บุคลากรทางการแพทย์",
+    "อาจารย์/บุคลากรการศึกษา",
+    "ธุรกิจส่วนตัว/เจ้าของกิจการ"
+  ]
+},
+{
+  q:"เป้าหมายหลักของคุณคืออะไร?",
+  e:"GOAL",
+  help:"เลือกได้มากกว่าหนึ่งข้อ",
+  type:"multi",
+  o:[
+    "ลดน้ำหนัก",
+    "เพิ่มกล้ามเนื้อ",
+    "ดูแลสุขภาพ",
+    "ผ่อนคลาย / Wellness"
+  ]
+},
+{
+  q:"คุณออกกำลังกายบ่อยแค่ไหน?",
+  e:"ACTIVITY",
+  help:"เลือกคำตอบที่ใกล้เคียงกับคุณที่สุด",
+  type:"single",
+  o:[
+    "1–2 ครั้ง / สัปดาห์",
+    "3–4 ครั้ง / สัปดาห์",
+    "5 ครั้งขึ้นไป",
+    "เพิ่งเริ่มต้น"
+  ]
+},
+{
+  q:"คุณสนใจกิจกรรมอะไรเป็นพิเศษ?",
+  e:"INTEREST",
+  help:"เลือกได้มากกว่าหนึ่งข้อ",
+  type:"multi",
+  o:[
+    "Performance Fitness",
+    "Personal Training",
+    "Group Training Classes",
+    "Muay Thai",
+    "Pilates & Yoga",
+    "Sports Massage & Recovery",
+    "Onsen",
+    "Café & Co-working",
+    "Pickleball"
+  ]
+},
+{
+  q:"งบประมาณต่อเดือนของคุณคือเท่าไร?",
+  e:"BUDGET",
+  help:"กรอกจำนวนเงินที่คุณสะดวก",
+  type:"budget"
+},
+{
+  q:"คุณอยากใช้บริการแบบไหน?",
+  e:"PREFERENCE",
+  help:"เลือกได้มากกว่าหนึ่งข้อ",
+  type:"multi",
+  o:[
+    "หลากหลายกิจกรรมในแพ็กเดียว",
+    "เน้นกิจกรรมหลัก",
+    "เลือกใช้แบบยืดหยุ่น",
+    "อยากให้ระบบช่วยเลือก"
+  ]
+}
 ];
 
 let current=0;
@@ -765,29 +1327,66 @@ let selectedBank=null;
 let phase2Timer=null;
 
 /* =========================
-   NAVIGATION
+   NAVIGATION (HISTORY STACK)
 ========================= */
 let historyStack = ['home'];
 
 function show(id, isBack = false) {
-  if(id !== "success" && phase2Timer) { clearInterval(phase2Timer); phase2Timer = null; }
+  // Clear phase 2 timer if navigating away
+  if(id !== "success" && phase2Timer) {
+    clearInterval(phase2Timer);
+    phase2Timer = null;
+  }
+
   const activeSection = document.querySelector("section.active");
-  if (!isBack && activeSection && activeSection.id !== id) { historyStack.push(activeSection.id); }
-  document.querySelectorAll("section").forEach(section => { section.classList.remove("active"); });
+  
+  // Record history if it's not a back action
+  if (!isBack && activeSection && activeSection.id !== id) {
+    historyStack.push(activeSection.id);
+  }
+
+  document.querySelectorAll("section").forEach(section => {
+    section.classList.remove("active");
+  });
+
   const target = document.getElementById(id);
-  if(target){ target.classList.add("active"); }
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  if(id === "compare"){ renderCompare(); }
+  if(target){
+    target.classList.add("active");
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  if(id === "compare"){
+    renderCompare();
+  }
+  document.querySelectorAll(".mobile-bottom-nav button").forEach(btn=>{
+    const t=btn.dataset.target;
+    btn.classList.toggle("active", t===id || (t==="quiz" && ["quiz","result"].includes(id)));
+  });
 }
 
 function goBack() {
-  if (historyStack.length > 0) { const prev = historyStack.pop(); show(prev, true); } else { show('home', true); }
+  if (historyStack.length > 0) {
+    const prev = historyStack.pop();
+    show(prev, true);
+  } else {
+    show('home', true);
+  }
 }
 
 /* =========================
    QUIZ
 ========================= */
-function startQuiz(){ current=0; answers=[null, null, [], null, [], null, []]; show("quiz"); renderQ(); }
+function startQuiz(){
+  current=0;
+  answers=[null, null, [], null, [], null, []];
+  show("quiz");
+  renderQ();
+}
+
 function renderQ(){
   const x=questions[current];
   document.getElementById("qnum").textContent=`คำถาม ${current+1} จาก ${questions.length}`;
@@ -797,66 +1396,152 @@ function renderQ(){
   document.getElementById("qeyebrow").textContent=x.e;
   document.getElementById("question").textContent=x.q;
   document.getElementById("questionHelp").textContent=x.help;
+
   const box=document.getElementById("options");
   const budgetArea=document.getElementById("budgetArea");
-  box.innerHTML=""; budgetArea.innerHTML="";
+  box.innerHTML="";
+  budgetArea.innerHTML="";
 
   if(x.type==="multi"){
     x.o.forEach((op,i)=>{
       const b=document.createElement("button");
       const isSelected=answers[current] && answers[current].includes(i);
-      b.className="option"+(isSelected?" selected":""); b.textContent=op;
-      b.onclick=()=>{ if(answers[current].includes(i)){ answers[current]=answers[current].filter(item=>item!==i); }else{ answers[current].push(i); } renderQ(); };
+      b.className="option"+(isSelected?" selected":"");
+      b.textContent=op;
+      b.onclick=()=>{
+        if(answers[current].includes(i)){
+          answers[current]=answers[current].filter(item=>item!==i);
+        }else{
+          answers[current].push(i);
+        }
+        renderQ();
+      };
       box.appendChild(b);
     });
   }
+
   if(x.type==="single"){
     x.o.forEach((op,i)=>{
       const b=document.createElement("button");
-      b.className="option"+(answers[current]===i?" selected":""); b.textContent=op;
-      b.onclick=()=>{ answers[current]=i; renderQ(); };
+      b.className="option"+(answers[current]===i?" selected":"");
+      b.textContent=op;
+      b.onclick=()=>{
+        answers[current]=i;
+        renderQ();
+      };
       box.appendChild(b);
     });
   }
+
   if(x.type==="budget"){
-    budgetArea.innerHTML=`<input id="budgetInput" type="number" min="0" class="budget-input" placeholder="เช่น 2500" value="${answers[current]||""}" oninput="updateBudget(this.value)"><div class="input-note">ตัวอย่าง: 1200 · 1800 · 3000 บาทต่อเดือน</div>`;
+    budgetArea.innerHTML=`
+      <input id="budgetInput" type="number" min="0" class="budget-input" placeholder="เช่น 2500" value="${answers[current]||""}" oninput="updateBudget(this.value)">
+      <div class="input-note">ตัวอย่าง: 1200 · 1800 · 3000 บาทต่อเดือน</div>
+    `;
   }
+
   document.getElementById("backBtn").style.visibility=current===0?"hidden":"visible";
   document.getElementById("nextBtn").textContent=current===questions.length-1?"ดูผลลัพธ์ ✦":"ถัดไป →";
 }
 
-function updateBudget(value){ answers[current]=Number(value); }
+function updateBudget(value){
+  answers[current]=Number(value);
+}
 
 function nextQ(){
-  const question=questions[current]; const answer=answers[current]; let valid=true;
-  if(question.type==="multi" && (!answer || answer.length===0)){ valid=false; }
-  if(question.type==="single" && answer===null){ valid=false; }
-  if(question.type==="budget" && (!answer || answer<=0)){ valid=false; }
-  if(!valid){ alert("กรุณาเลือกหรือกรอกข้อมูลก่อนนะ 😊"); return; }
-  if(current<questions.length-1){ current++; renderQ(); }else{ makeResult(); }
+  const question=questions[current];
+  const answer=answers[current];
+  let valid=true;
+
+  if(question.type==="multi" && (!answer || answer.length===0)){
+    valid=false;
+  }
+  if(question.type==="single" && answer===null){
+    valid=false;
+  }
+  if(question.type==="budget" && (!answer || answer<=0)){
+    valid=false;
+  }
+
+  if(!valid){
+    alert("กรุณาเลือกหรือกรอกข้อมูลก่อนนะ 😊");
+    return;
+  }
+
+  if(current<questions.length-1){
+    current++;
+    renderQ();
+  }else{
+    makeResult();
+  }
 }
-function prevQ(){ if(current>0){ current--; renderQ(); } }
+
+function prevQ(){
+  if(current>0){
+    current--;
+    renderQ();
+  }
+}
 
 /* =========================
    MATCHING SYSTEM
 ========================= */
 function makeResult(){
-  const occ=answers[1], goals=answers[2], freq=answers[3], interests=answers[4], budget=answers[5], pref=answers[6];
-  let signatureScore=0, coreScore=0, urateScore=0;
+  const gender=answers[0];
+  const occ=answers[1];
+  const goals=answers[2];
+  const freq=answers[3];
+  const interests=answers[4];
+  const budget=answers[5];
+  const pref=answers[6];
 
-  if(occ===0){ urateScore+=2; coreScore+=1; } else if(occ===5){ signatureScore+=2; }
-  if(goals.includes(0)){ signatureScore+=2; coreScore+=3; urateScore+=1; } if(goals.includes(1)){ signatureScore+=3; coreScore+=3; urateScore+=1; } if(goals.includes(2)){ signatureScore+=3; coreScore+=2; urateScore+=2; } if(goals.includes(3)){ signatureScore+=4; coreScore+=1; urateScore+=2; }
-  if(freq===0){ urateScore+=2; coreScore+=2; } if(freq===1){ coreScore+=3; signatureScore+=2; } if(freq===2){ signatureScore+=4; coreScore+=2; } if(freq===3){ urateScore+=3; coreScore+=1; }
-  if(interests.includes(0)){ signatureScore+=2; coreScore+=3; urateScore+=2; } if(interests.includes(1)){ signatureScore+=4; coreScore+=2; } if(interests.includes(2)){ signatureScore+=3; coreScore+=3; urateScore+=1; } if(interests.includes(3)){ signatureScore+=4; } if(interests.includes(4)){ signatureScore+=4; coreScore+=3; } if(interests.includes(5)){ signatureScore+=4; urateScore+=1; } if(interests.includes(6)){ signatureScore+=4; urateScore+=1; } if(interests.includes(7)){ signatureScore+=3; coreScore+=1; urateScore+=2; } if(interests.includes(8)){ signatureScore+=3; coreScore+=2; urateScore+=1; }
-  if(budget>=3000){ signatureScore+=5; } else if(budget>=1800){ coreScore+=5; signatureScore+=2; } else{ urateScore+=5; }
-  if(pref.includes(0)){ signatureScore+=5; } if(pref.includes(1)){ coreScore+=5; } if(pref.includes(2)){ urateScore+=5; } if(pref.includes(3)){ signatureScore+=3; coreScore+=2; urateScore+=2; }
+  let signatureScore=0;
+  let coreScore=0;
+  let urateScore=0;
+
+  // Occ Influence (Optional minor weighting based on occupation)
+  if(occ===0){ urateScore+=2; coreScore+=1; } // นักศึกษา
+  else if(occ===5){ signatureScore+=2; } // ธุรกิจส่วนตัว
+
+  if(goals.includes(0)){ signatureScore+=2; coreScore+=3; urateScore+=1; }
+  if(goals.includes(1)){ signatureScore+=3; coreScore+=3; urateScore+=1; }
+  if(goals.includes(2)){ signatureScore+=3; coreScore+=2; urateScore+=2; }
+  if(goals.includes(3)){ signatureScore+=4; coreScore+=1; urateScore+=2; }
+
+  if(freq===0){ urateScore+=2; coreScore+=2; }
+  if(freq===1){ coreScore+=3; signatureScore+=2; }
+  if(freq===2){ signatureScore+=4; coreScore+=2; }
+  if(freq===3){ urateScore+=3; coreScore+=1; }
+
+  if(interests.includes(0)){ signatureScore+=2; coreScore+=3; urateScore+=2; }
+  if(interests.includes(1)){ signatureScore+=4; coreScore+=2; }
+  if(interests.includes(2)){ signatureScore+=3; coreScore+=3; urateScore+=1; }
+  if(interests.includes(3)){ signatureScore+=4; }
+  if(interests.includes(4)){ signatureScore+=4; coreScore+=3; }
+  if(interests.includes(5)){ signatureScore+=4; urateScore+=1; }
+  if(interests.includes(6)){ signatureScore+=4; urateScore+=1; }
+  if(interests.includes(7)){ signatureScore+=3; coreScore+=1; urateScore+=2; }
+  if(interests.includes(8)){ signatureScore+=3; coreScore+=2; urateScore+=1; }
+
+  if(budget>=3000){ signatureScore+=5; }
+  else if(budget>=1800){ coreScore+=5; signatureScore+=2; }
+  else{ urateScore+=5; }
+
+  if(pref.includes(0)){ signatureScore+=5; }
+  if(pref.includes(1)){ coreScore+=5; }
+  if(pref.includes(2)){ urateScore+=5; }
+  if(pref.includes(3)){ signatureScore+=3; coreScore+=2; urateScore+=2; }
 
   const scores={ signature:signatureScore, core:coreScore, urate:urateScore };
+
   recommendedPackage=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
   selectedPackage=recommendedPackage;
 
   const pkg=packages[recommendedPackage];
-  let score=88; if(recommendedPackage==="signature"){ score=94; } if(recommendedPackage==="core"){ score=91; } if(recommendedPackage==="urate"){ score=89; }
+  let score=88;
+  if(recommendedPackage==="signature"){ score=94; }
+  if(recommendedPackage==="core"){ score=91; }
+  if(recommendedPackage==="urate"){ score=89; }
 
   document.getElementById("packageName").textContent=pkg.name;
   document.getElementById("summaryPackage").textContent=pkg.name;
@@ -867,42 +1552,73 @@ function makeResult(){
 
   const goalText=goals.map(i=>questions[2].o[i]).join(" · ");
   const interestText=interests.map(i=>questions[4].o[i]).join(" · ");
-  document.getElementById("reasons").innerHTML=[ `✓ เป้าหมายที่คุณเลือก: ${goalText}`, `✓ คุณออกกำลังกาย ${questions[3].o[freq]}`, `✓ กิจกรรมที่คุณสนใจ: ${interestText}`, `✓ งบประมาณของคุณประมาณ ฿${budget.toLocaleString()} ต่อเดือน` ].map(item=>`<div class="reason">${item}</div>`).join("");
+  document.getElementById("reasons").innerHTML=[
+    `✓ เป้าหมายที่คุณเลือก: ${goalText}`,
+    `✓ คุณออกกำลังกาย ${questions[3].o[freq]}`,
+    `✓ กิจกรรมที่คุณสนใจ: ${interestText}`,
+    `✓ งบประมาณของคุณประมาณ ฿${budget.toLocaleString()} ต่อเดือน`
+  ].map(item=>`<div class="reason">${item}</div>`).join("");
 
   show("result");
 }
 
 /* =========================
-   COMPARE & DETAILS
+   COMPARE
 ========================= */
 function updateCompareCheckoutBanner(animate=false){
-  const pkg=packages[selectedPackage]; const name=document.getElementById("compareSelectedName"); const price=document.getElementById("compareSelectedPrice"); const banner=document.getElementById("selectedPackageBanner");
+  const pkg=packages[selectedPackage];
+  const name=document.getElementById("compareSelectedName");
+  const price=document.getElementById("compareSelectedPrice");
+  const banner=document.getElementById("selectedPackageBanner");
+
   if(!pkg || !name || !price || !banner){ return; }
-  name.textContent=pkg.name; price.textContent="฿"+pkg.price.toLocaleString()+" / เดือน";
-  if(animate){ banner.classList.remove("updated"); void banner.offsetWidth; banner.classList.add("updated"); }
+
+  name.textContent=pkg.name;
+  price.textContent="฿"+pkg.price.toLocaleString()+" / เดือน";
+
+  if(animate){
+    banner.classList.remove("updated");
+    void banner.offsetWidth;
+    banner.classList.add("updated");
+  }
 }
 
 function renderCompare(){
-  const container=document.getElementById("compareGrid"); container.innerHTML="";
+  const container=document.getElementById("compareGrid");
+  container.innerHTML="";
+
   Object.entries(packages).forEach(([key,pkg])=>{
-    const isSelected=selectedPackage===key; const isRecommended=recommendedPackage===key;
-    container.innerHTML+=`<div class="plan ${isSelected?"selected":""} ${isRecommended?"has-ribbon":""}">
-      ${isRecommended?`<div class="ribbon">✦ Recommended</div>`:""}
-      <div class="eyebrow">${pkg.type}</div>
-      <h2>${pkg.name}</h2>
-      <div class="plan-price">฿${pkg.price.toLocaleString()}</div>
-      <small>ต่อเดือน</small>
-      <ul>${pkg.services.map(service=>`<li>${service}</li>`).join("")}</ul>
-      <div class="plan-actions"><button class="${isSelected?"primary":"secondary"} choose-btn" onclick="choosePackage('${key}')">${isSelected?"เลือกอยู่":"เลือกแพ็กเกจนี้"}</button><div class="detail-center"><button class="small-detail" onclick="openPackageDetail('${key}')">ดูรายละเอียดเพิ่มเติม</button></div></div>
-    </div>`;
+    const isSelected=selectedPackage===key;
+    const isRecommended=recommendedPackage===key;
+    container.innerHTML+=`
+      <div class="plan ${isSelected?"selected":""} ${isRecommended?"has-ribbon":""}">
+        ${isRecommended?`<div class="ribbon">✦ Recommended</div>`:""}
+        <div class="eyebrow">${pkg.type}</div>
+        <h2>${pkg.name}</h2>
+        <div class="plan-price">฿${pkg.price.toLocaleString()}</div>
+        <small>ต่อเดือน</small>
+        <ul>${pkg.services.map(service=>`<li>${service}</li>`).join("")}</ul>
+        <div class="plan-actions">
+          <button class="${isSelected?"primary":"secondary"} choose-btn" onclick="choosePackage('${key}')">${isSelected?"เลือกอยู่":"เลือกแพ็กเกจนี้"}</button>
+          <div class="detail-center">
+            <button class="small-detail" onclick="openPackageDetail('${key}')">ดูรายละเอียดเพิ่มเติม</button>
+          </div>
+        </div>
+      </div>
+    `;
   });
   updateCompareCheckoutBanner();
 }
 
-function choosePackage(key){ selectedPackage=key; renderCompare(); updateCompareCheckoutBanner(true); }
+function choosePackage(key){
+  selectedPackage=key;
+  renderCompare();
+  updateCompareCheckoutBanner(true);
+}
 
 function openPackageDetail(key){
-  detailPackage=key; const pkg=packages[key];
+  detailPackage=key;
+  const pkg=packages[key];
   document.getElementById("detailType").textContent=pkg.type;
   document.getElementById("detailName").textContent=pkg.name;
   document.getElementById("detailPrice").textContent="฿"+pkg.price.toLocaleString();
@@ -911,100 +1627,229 @@ function openPackageDetail(key){
   document.getElementById("detailServices").innerHTML=pkg.services.map(service=>`<li>${service}</li>`).join("");
   show("detail");
 }
-function selectDetailPackage(){ selectedPackage=detailPackage; goPayment(); }
+
+function selectDetailPackage(){
+  selectedPackage=detailPackage;
+  goPayment();
+}
 
 /* =========================
-   PAYMENT
+   PAYMENT · ADVANCED FLOW
 ========================= */
 function goPayment(){
-  const pkg=packages[selectedPackage]; const vat=Math.round(pkg.price*0.07); const total=pkg.price+vat;
-  document.getElementById("checkoutPackage").textContent=pkg.name; document.getElementById("checkoutPrice").textContent="฿"+pkg.price.toLocaleString();
-  document.getElementById("subTotal").textContent="฿"+pkg.price.toLocaleString(); document.getElementById("vat").textContent="฿"+vat.toLocaleString();
-  document.getElementById("grandTotal").textContent="฿"+total.toLocaleString(); document.getElementById("payButtonAmount").textContent="฿"+total.toLocaleString();
-  document.getElementById("qrTotal").textContent="ยอดชำระ ฿"+total.toLocaleString(); document.getElementById("checkoutServices").innerHTML=pkg.services.map(service=>`<span>${service}</span>`).join("");
-  document.getElementById("cardNumber").value = ""; document.getElementById("cardName").value = ""; document.getElementById("cardExpiry").value = ""; document.getElementById("cardCvv").value = "";
-  paymentMethod="card"; selectedBank=null;
-  document.querySelectorAll(".pay-tab").forEach((tab,index)=>{ tab.classList.toggle("active",index===0); }); document.querySelectorAll(".bank-option").forEach(bank=>bank.classList.remove("active"));
-  document.getElementById("cardForm").style.display="block"; document.getElementById("qrForm").style.display="none"; document.getElementById("mobileForm").style.display="none";
-  document.getElementById("mobileSelected").textContent="กรุณาเลือกธนาคาร"; document.getElementById("payActionText").textContent="ชำระเงิน";
+  const pkg=packages[selectedPackage];
+  const vat=Math.round(pkg.price*0.07);
+  const total=pkg.price+vat;
+
+  document.getElementById("checkoutPackage").textContent=pkg.name;
+  document.getElementById("checkoutPrice").textContent="฿"+pkg.price.toLocaleString();
+  document.getElementById("subTotal").textContent="฿"+pkg.price.toLocaleString();
+  document.getElementById("vat").textContent="฿"+vat.toLocaleString();
+  document.getElementById("grandTotal").textContent="฿"+total.toLocaleString();
+  document.getElementById("payButtonAmount").textContent="฿"+total.toLocaleString();
+  document.getElementById("qrTotal").textContent="ยอดชำระ ฿"+total.toLocaleString();
+  document.getElementById("checkoutServices").innerHTML=pkg.services.map(service=>`<span>${service}</span>`).join("");
+
+  // เคลียร์ข้อมูลฟอร์มบัตรเครดิตให้ว่างใหม่ทุกครั้ง
+  document.getElementById("cardNumber").value = "";
+  document.getElementById("cardName").value = "";
+  document.getElementById("cardExpiry").value = "";
+  document.getElementById("cardCvv").value = "";
+
+  paymentMethod="card";
+  selectedBank=null;
+  document.querySelectorAll(".pay-tab").forEach((tab,index)=>{ tab.classList.toggle("active",index===0); });
+  document.querySelectorAll(".bank-option").forEach(bank=>bank.classList.remove("active"));
+  document.getElementById("cardForm").style.display="block";
+  document.getElementById("qrForm").style.display="none";
+  document.getElementById("mobileForm").style.display="none";
+  document.getElementById("mobileSelected").textContent="กรุณาเลือกธนาคาร";
+  document.getElementById("payActionText").textContent="ชำระเงิน";
+
   show("payment");
 }
 
 function setPayment(type,element){
   paymentMethod=type;
-  document.querySelectorAll(".pay-tab").forEach(tab=>{ tab.classList.remove("active"); }); element.classList.add("active");
+  document.querySelectorAll(".pay-tab").forEach(tab=>{ tab.classList.remove("active"); });
+  element.classList.add("active");
+
   document.getElementById("cardForm").style.display=type==="card" ? "block" : "none";
   document.getElementById("qrForm").style.display=type==="qr" ? "block" : "none";
   document.getElementById("mobileForm").style.display=type==="mobile" ? "block" : "none";
+
   const action=document.getElementById("payActionText");
-  if(type==="mobile"){ action.textContent=selectedBank ? "เปิด "+selectedBank : "เลือกธนาคารเพื่อชำระ"; }else if(type==="qr"){ action.textContent="ยืนยันการชำระผ่าน QR"; }else{ action.textContent="ชำระเงิน"; }
+  if(type==="mobile"){
+    action.textContent=selectedBank ? "เปิด "+selectedBank : "เลือกธนาคารเพื่อชำระ";
+  }else if(type==="qr"){
+    action.textContent="ยืนยันการชำระผ่าน QR";
+  }else{
+    action.textContent="ชำระเงิน";
+  }
 }
 
 function selectBank(bank,element){
-  selectedBank=bank; document.querySelectorAll(".bank-option").forEach(option=>option.classList.remove("active")); element.classList.add("active");
-  document.getElementById("mobileSelected").textContent="เลือกแล้ว: "+bank; document.getElementById("payActionText").textContent="เปิด "+bank;
+  selectedBank=bank;
+  document.querySelectorAll(".bank-option").forEach(option=>option.classList.remove("active"));
+  element.classList.add("active");
+  document.getElementById("mobileSelected").textContent="เลือกแล้ว: "+bank;
+  document.getElementById("payActionText").textContent="เปิด "+bank;
 }
 
 function processPayment(){
   if(paymentMethod==="card"){
-    const cardNumber=document.getElementById("cardNumber").value.replace(/\s/g,""); const cardName=document.getElementById("cardName").value.trim(); const expiry=document.getElementById("cardExpiry").value.trim(); const cvv=document.getElementById("cardCvv").value.trim();
-    if(cardNumber.length<12){ alert("กรุณากรอกหมายเลขบัตรให้ครบก่อนนะ 💳"); return; }
-    if(!cardName){ alert("กรุณากรอกชื่อบนบัตร"); return; }
-    if(expiry.length < 5 || cvv.length < 3){ alert("กรุณากรอกวันหมดอายุและ CVV ให้ครบถ้วน"); return; }
+    const cardNumber=document.getElementById("cardNumber").value.replace(/\s/g,"");
+    const cardName=document.getElementById("cardName").value.trim();
+    const expiry=document.getElementById("cardExpiry").value.trim();
+    const cvv=document.getElementById("cardCvv").value.trim();
+
+    if(cardNumber.length<12){
+      alert("กรุณากรอกหมายเลขบัตรให้ครบก่อนนะ 💳");
+      return;
+    }
+    if(!cardName){
+      alert("กรุณากรอกชื่อบนบัตร");
+      return;
+    }
+    if(expiry.length < 5 || cvv.length < 3){
+      alert("กรุณากรอกวันหมดอายุและ CVV ให้ครบถ้วน");
+      return;
+    }
   }
-  if(paymentMethod==="mobile" && !selectedBank){ alert("กรุณาเลือกธนาคารสำหรับ Mobile Banking ก่อนนะ 📱"); return; }
-  const processingTitle=document.querySelector("#processing h2"); const processingText=document.querySelector("#processing .process-card > p");
-  if(paymentMethod==="mobile"){ processingTitle.textContent="กำลังเชื่อมต่อ "+selectedBank; processingText.textContent="กำลังจำลองการยืนยันรายการผ่าน Mobile Banking ของคุณ"; }
-  else if(paymentMethod==="qr"){ processingTitle.textContent="กำลังตรวจสอบการชำระผ่าน QR"; processingText.textContent="กรุณารอสักครู่ ระบบกำลังตรวจสอบรายการของคุณ"; }
-  else{ processingTitle.textContent="กำลังดำเนินการชำระเงิน"; processingText.textContent="กรุณารอสักครู่ ระบบกำลังตรวจสอบรายการของคุณ"; }
+
+  if(paymentMethod==="mobile" && !selectedBank){
+    alert("กรุณาเลือกธนาคารสำหรับ Mobile Banking ก่อนนะ 📱");
+    return;
+  }
+
+  const processingTitle=document.querySelector("#processing h2");
+  const processingText=document.querySelector("#processing .process-card > p");
+  if(paymentMethod==="mobile"){
+    processingTitle.textContent="กำลังเชื่อมต่อ "+selectedBank;
+    processingText.textContent="กำลังจำลองการยืนยันรายการผ่าน Mobile Banking ของคุณ";
+  }else if(paymentMethod==="qr"){
+    processingTitle.textContent="กำลังตรวจสอบการชำระผ่าน QR";
+    processingText.textContent="กรุณารอสักครู่ ระบบกำลังตรวจสอบรายการของคุณ";
+  }else{
+    processingTitle.textContent="กำลังดำเนินการชำระเงิน";
+    processingText.textContent="กรุณารอสักครู่ ระบบกำลังตรวจสอบรายการของคุณ";
+  }
+
   show("processing");
-  const fill=document.getElementById("processFill"); fill.style.width="0%";
-  setTimeout(()=>fill.style.width="35%",150); setTimeout(()=>fill.style.width="72%",800); setTimeout(()=>fill.style.width="100%",1450); setTimeout(paymentSuccess,2200);
+  const fill=document.getElementById("processFill");
+  fill.style.width="0%";
+
+  setTimeout(()=>fill.style.width="35%",150);
+  setTimeout(()=>fill.style.width="72%",800);
+  setTimeout(()=>fill.style.width="100%",1450);
+  setTimeout(paymentSuccess,2200);
 }
 
 function paymentSuccess(){
-  const pkg=packages[selectedPackage]; const total=pkg.price+Math.round(pkg.price*0.07);
-  document.getElementById("successPackage").textContent=pkg.name; document.getElementById("successAmount").textContent="฿"+total.toLocaleString();
+  const pkg=packages[selectedPackage];
+  const total=pkg.price+Math.round(pkg.price*0.07);
+
+  document.getElementById("successPackage").textContent=pkg.name;
+  document.getElementById("successAmount").textContent="฿"+total.toLocaleString();
   const methodLabel=paymentMethod==="mobile" ? "Mobile Banking · "+selectedBank : paymentMethod==="qr" ? "QR Code" : "บัตรเครดิต / เดบิต";
-  document.getElementById("successPaymentMethod").textContent=methodLabel; document.getElementById("orderId").textContent="#WVM-"+Date.now().toString().slice(-8);
-  show("success"); startPhase2Countdown();
+  document.getElementById("successPaymentMethod").textContent=methodLabel;
+  document.getElementById("orderId").textContent="#WVM-"+Date.now().toString().slice(-8);
+
+  show("success");
+  startPhase2Countdown();
 }
 
 function startPhase2Countdown(){
   if(phase2Timer){ clearInterval(phase2Timer); }
-  let left=5; document.getElementById("phase2Countdown").textContent=left;
+  let left=5;
+  document.getElementById("phase2Countdown").textContent=left;
+
   phase2Timer=setInterval(()=>{
-    left--; document.getElementById("phase2Countdown").textContent=Math.max(left,0);
-    if(left<=0){ clearInterval(phase2Timer); phase2Timer=null; openPhase2(); }
+    left--;
+    document.getElementById("phase2Countdown").textContent=Math.max(left,0);
+    if(left<=0){
+      clearInterval(phase2Timer);
+      phase2Timer=null;
+      openPhase2();
+    }
   },1000);
 }
 
 function openPhase2(){
-  if(phase2Timer){ clearInterval(phase2Timer); phase2Timer=null; }
-  const pkg=packages[selectedPackage]; document.getElementById("phase2Package").textContent=pkg.name; show("phase2");
+  if(phase2Timer){
+    clearInterval(phase2Timer);
+    phase2Timer=null;
+  }
+  const pkg=packages[selectedPackage];
+  document.getElementById("phase2Package").textContent=pkg.name;
+  show("phase2");
 }
 
-/* Validation */
+/* Validation and Form helpers */
 document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelector('.mobile-bottom-nav button[data-target="home"]')?.classList.add("active");
   const qr=document.getElementById("fakeQr");
-  if(qr && !qr.children.length){ for(let i=0;i<36;i++){ const square=document.createElement("span"); qr.appendChild(square); } }
+  if(qr && !qr.children.length){
+    for(let i=0;i<36;i++){
+      const square=document.createElement("span");
+      qr.appendChild(square);
+    }
+  }
+
   const cardNumber=document.getElementById("cardNumber");
-  if(cardNumber){ cardNumber.addEventListener("input",event=>{ const digits=event.target.value.replace(/\D/g,"").slice(0,16); event.target.value=digits.replace(/(.{4})/g,"$1 ").trim(); }); }
+  if(cardNumber){
+    cardNumber.addEventListener("input",event=>{
+      const digits=event.target.value.replace(/\D/g,"").slice(0,16);
+      event.target.value=digits.replace(/(.{4})/g,"$1 ").trim();
+    });
+  }
+
+  // ชื่อบนบัตร: ให้พิมพ์ได้แค่ตัวอักษรไทย อังกฤษ และเว้นวรรค
   const cardName=document.getElementById("cardName");
-  if(cardName){ cardName.addEventListener("input",event=>{ event.target.value = event.target.value.replace(/[^a-zA-Zก-๙\s]/g, ""); }); }
+  if(cardName){
+    cardName.addEventListener("input",event=>{
+      event.target.value = event.target.value.replace(/[^a-zA-Zก-๙\s]/g, "");
+    });
+  }
+
+  // วันหมดอายุ: บังคับรูปแบบ MM/YY และเดือนไม่เกิน 12
   const cardExpiry=document.getElementById("cardExpiry");
   if(cardExpiry){
     cardExpiry.addEventListener("input",event=>{
       let val = event.target.value.replace(/\D/g, ""); 
-      if (val.length >= 1) { let firstDigit = parseInt(val.charAt(0)); if (firstDigit > 1) { val = "0" + val; } }
-      if (val.length >= 2) { let month = parseInt(val.substring(0, 2)); if (month === 0) { val = "01" + val.substring(2); } else if (month > 12) { val = "12" + val.substring(2); } }
-      if (val.length > 2) { val = val.substring(0, 2) + "/" + val.substring(2, 4); }
+      
+      if (val.length >= 1) {
+        let firstDigit = parseInt(val.charAt(0));
+        if (firstDigit > 1) {
+          val = "0" + val; // เติม 0 ให้อัตโนมัติถ้าพิมพ์ 2-9
+        }
+      }
+      if (val.length >= 2) {
+        let month = parseInt(val.substring(0, 2));
+        if (month === 0) {
+          val = "01" + val.substring(2);
+        } else if (month > 12) {
+          val = "12" + val.substring(2);
+        }
+      }
+      
+      if (val.length > 2) {
+        val = val.substring(0, 2) + "/" + val.substring(2, 4);
+      }
+      
       event.target.value = val;
     });
   }
+
+  // CVV: ให้พิมพ์ได้แค่ตัวเลข 3 หลัก
   const cardCvv=document.getElementById("cardCvv");
-  if(cardCvv){ cardCvv.addEventListener("input",event=>{ event.target.value=event.target.value.replace(/\D/g,"").slice(0,3); }); }
+  if(cardCvv){
+    cardCvv.addEventListener("input",event=>{
+      event.target.value=event.target.value.replace(/\D/g,"").slice(0,3);
+    });
+  }
 });
+
 </script>
 
 </body>
